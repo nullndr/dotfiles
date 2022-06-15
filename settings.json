@@ -1,0 +1,94 @@
+{
+  "workbench.colorTheme": "The Best Theme",
+  "editor.inlineSuggest.enabled": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "telemetry.telemetryLevel": "off",
+  "vim.insertModeKeyBindings": [
+    {
+      "after": ["<Esc>"],
+      "before": ["j", "k"]
+    }
+  ],
+  "vim.useCtrlKeys": false,
+  "vim.overrideCopy": true,
+  "vim.useSystemClipboard": true,
+  "window.menuBarVisibility": "toggle",
+  "workbench.list.openMode": "doubleClick",
+  "workbench.tree.expandMode": "doubleClick",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "shopifyLiquid.formatterDevPreview": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.defaultDateLocale": null,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "workbench.startupEditor": "none",
+  "explorer.confirmDelete": false,
+  "prettier.trailingComma": "all",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.clang_format_sortIncludes": true,
+  "C_Cpp.vcFormat.indent.accessSpecifiers": true,
+  "editor.tabSize": 2,
+  "C_Cpp.vcFormat.indent.multiLineRelativeTo": "statementBegin",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.namespace": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.type": "sameLine",
+  "redhat.telemetry.enabled": false,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": false
+  },
+  "antlr4.format": {
+    "alignTrailingComments": false,
+    "allowShortBlocksOnASingleLine": true,
+    "breakBeforeBraces": true,
+    "columnLimit": 100,
+    "continuationIndentWidth": 4,
+    "indentWidth": 2,
+    "keepEmptyLinesAtTheStartOfBlocks": false,
+    "maxEmptyLinesToKeep": 1,
+    "reflowComments": true,
+    "spaceBeforeAssignmentOperators": true,
+    "tabWidth": 2,
+    "useTab": true,
+    "alignColons": "none",
+    "singleLineOverrulesHangingColon": true,
+    "allowShortRulesOnASingleLine": true,
+    "alignSemicolons": "hanging",
+    "breakBeforeParens": false,
+    "ruleInternalsOnSingleLine": false,
+    "minEmptyLines": 0,
+    "groupedAlignments": true,
+    "alignFirstTokens": false,
+    "alignLexerCommands": false,
+    "alignActions": false,
+    "alignLabels": true,
+    "alignTrailers": false,
+    "spaceAfterTrailers": true
+  },
+  "explorer.confirmDragAndDrop": false,
+  "github.copilot.advanced": {},
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "explorer.compactFolders": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 1
+}
