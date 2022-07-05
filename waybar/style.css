@@ -6,9 +6,11 @@
   border-radius: 20px;
 }
 
+/*
 window {
-  /*font-weight: bold;*/
+  font-weight: bold;
 }
+*/
 
 window#waybar {
   background: rgba(0, 0, 0, 0);
@@ -17,16 +19,16 @@ window#waybar {
 /*-----module groups----*/
 .modules-right {
   background-color: rgba(0, 43, 51, 0.85);
-  margin: 2px 10px 0 0;
+  margin: 5px 10px 0 0;
 }
 
 .modules-center {
   background-color: rgba(0, 43, 51, 0.85);
-  margin: 2px 0 0 0;
+  margin: 5px 0 0 0;
 }
 
 .modules-left {
-  margin: 2px 0 0 5px;
+  margin: 5px 0 0 10px;
   background-color: rgba(0, 119, 179, 0.6);
 }
 
@@ -70,7 +72,7 @@ window#waybar {
   background-color: rgba(0, 119, 179, 0.6);
   border-radius: 50px;
   margin: 5px 5px;
-  padding: 1px 3px;
+  padding: 3px 8px;
 }
 
 /*-----Indicators----*/
@@ -83,11 +85,7 @@ window#waybar {
 }
 
 #battery.charging {
-  color: #506ce9;
-}
-
-#battery.discharging {
-  color: #0dc726;
+  color: #05e010;
 }
 
 #battery.warning:not(.charging) {

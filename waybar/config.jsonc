@@ -3,7 +3,9 @@
   "modules-center": ["clock", "idle_inhibitor"],
   "modules-right": [
     "tray",
+    "custom/updates",
     "network",
+    "bluetooth",
     "custom/scratchpad-indicator",
     "pulseaudio",
     "temperature",
@@ -12,9 +14,18 @@
     "memory",
     "custom/power"
   ],
-
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
+  },
+  "bluetooth": {
+    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": " {status}",
+    "on-click": "bluedevil-wizard",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections} connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
   },
   "network": {
     "format-wifi": "{essid} ({signalStrength}%) ",
@@ -29,6 +40,13 @@
       "activated": "",
       "deactivated": ""
     }
+  },
+  "custom/updates":{
+    "format": "{} Update(s)",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+    "interval": 15,
+    "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
   },
   "tray": {
     "icon-size": 15,
@@ -47,7 +65,7 @@
   },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-    "critical-threshold": 82,
+    "critical-threshold": 50,
     "format-critical": "{temperatureC}°C {icon}",
     "format": "{temperatureC}°C {icon}",
     "format-icons": [""]
@@ -59,10 +77,10 @@
       "critical": 10
     },
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% {icon}",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
-    "format-full": "",
+    "format-full": "{capacity} ",
     "format-icons": ["", "", "", "", ""]
   },
   "pulseaudio": {
