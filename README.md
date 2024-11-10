@@ -1,4 +1,4 @@
-# dotenv/configs
+# dotfiles
 
 List of my dot files and config files for my Arch Linux desktop setup.
 
