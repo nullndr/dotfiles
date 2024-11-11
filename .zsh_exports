@@ -1,0 +1,29 @@
+export PATH="$PATH:$HOME/.rbenv/shims"
+
+export QT_QPA_PLATFORM="wayland"
+
+export SDL_VIDEODRIVER="wayland"
+
+export _JAVA_AWT_WM_NONREPARENTING="1"
+
+export QT_QPA_PLATFORM="wayland"
+
+export XDG_CURRENT_DESKTOP="sway"
+export XDG_SESSION_DESKTOP="sway"
+
+export GPG_TTY="$(tty)"
+
+# Bun and bun completitions
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" --no-use
+
+# Ghcup
+[ -f "/home/andrea/.ghcup/env" ] && . "/home/andrea/.ghcup/env"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
