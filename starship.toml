@@ -6,3 +6,6 @@
 
 [nodejs]
   disabled = true
+
+[os]
+  disabled = false
