@@ -11,9 +11,11 @@ set $right l
 set $screenrecorder `bash $HOME/.config/sway/scripts/toggle-screen-recorder.sh`
 bindsym --to-code $mod+Shift+R exec $screenrecorder
 
+# background
+set $background "/usr/share/backgrounds/sway/arch.png"
 
 # lock screen
-bindsym Mod4+l exec swaylock -l -f -e -F -i "/usr/share/backgrounds/sway/universe.jpg" -s stretch
+bindsym Mod4+l exec swaylock -l -f -e -F -i "$background" -s stretch
 
 # nyxt browser
 bindsym $mod+Shift+b exec nyxt
@@ -47,7 +49,7 @@ client.urgent #434c5e #434c5e #eceff4 #434c5e #434c5e
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/universe.jpg stretch
+output * bg "$background" stretch
 
 ### Idle configuration
 #
