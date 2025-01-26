@@ -1,46 +1,46 @@
 * {
-  border: none;
-  border-radius: 0;
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: Liberation Mono;
-  min-height: 20px;
+	border: none;
+	border-radius: 0;
+	/* `otf-font-awesome` is required to be installed for icons */
+	font-family: Liberation Mono;
+	min-height: 20px;
 }
 
 window#waybar {
-  background: transparent;
+	background: transparent;
 }
 
 window#waybar.hidden {
-  opacity: 0.2;
+	opacity: 0.2;
 }
 
 #workspaces {
-  border-radius: 10px;
-  transition: none;
-  background: #383c4a;
-  margin-right: 8px;
+	border-radius: 10px;
+	transition: none;
+	background: #383c4a;
+	margin-right: 8px;
 }
 
 #workspaces button {
-  transition: none;
-  color: #7c818c;
-  background: transparent;
-  padding: 5px;
-  font-size: 18px;
+	transition: none;
+	color: #7c818c;
+	background: transparent;
+	padding: 5px;
+	font-size: 18px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-  transition: none;
-  box-shadow: inherit;
-  text-shadow: inherit;
-  border-radius: inherit;
-  color: #383c4a;
-  background: #7c818c;
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	border-radius: inherit;
+	color: #383c4a;
+	background: #7c818c;
 }
 
 #workspaces button.focused {
-  color: white;
+	color: white;
 }
 
 #custom-pacman,
@@ -52,110 +52,114 @@ window#waybar.hidden {
 #bluetooth,
 #network,
 #backlight {
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 10px;
-  background: #383c4a;
+	padding-left: 8px;
+	padding-right: 8px;
+	border-radius: 10px;
+	background: #383c4a;
 }
 
 #custom-pacman {
-  transition: none;
-  color: #ffffff;
+	transition: none;
+	color: #ffffff;
 }
 
 #bluetooth {
-  margin-right: 8px;
+	margin-right: 8px;
 }
 
-#bluetooth.connected, #bluetooth.on {
-  background-color: #26a65b;
+#bluetooth.connected,
+#bluetooth.on {
+	background-color: #26a65b;
 }
 
-#bluetooth.disabled, #bluetooth.off {
-  background-color: #f53c3c;
+#bluetooth.disabled,
+#bluetooth.off {
+	background-color: #f53c3c;
 }
 
 #mode {
-  transition: none;
-  color: #ffffff;
+	transition: none;
+	color: #ffffff;
 }
 
 #clock {
-  transition: none;
-  color: #ffffff;
-  margin-right: 8px;
+	transition: none;
+	color: #ffffff;
+	margin-right: 8px;
 }
 
 #idle_inhibitor {
-  transition: none;
-  color: #ffffff;
+	transition: none;
+	color: #ffffff;
 }
 
 #idle_inhibitor.activated {
-  background-color: #26a65b;
+	background-color: #26a65b;
 }
 
 #pulseaudio {
-  margin-right: 8px;
-  transition: none;
-  color: #ffffff;
+	margin-right: 8px;
+	transition: none;
+	color: #ffffff;
 }
 
 #pulseaudio.muted,
 #pulseaudio.source-muted {
-  background-color: #90b1b1;
-  color: #2a5c45;
+	background-color: #90b1b1;
+	color: #2a5c45;
 }
 
 #backlight {
-  margin-right: 8px;
-  transition: none;
-  color: #ffffff;
+	margin-right: 8px;
+	transition: none;
+	color: #ffffff;
 }
 
 #battery {
-  margin-right: 8px;
-  transition: none;
-  color: #ffffff;
+	margin-right: 8px;
+	transition: none;
+	color: #ffffff;
 }
 
 #battery.charging {
-  color: #ffffff;
-  background-color: #26a65b;
+	color: #ffffff;
+	background-color: #26a65b;
 }
 
 #battery.warning:not(.charging) {
-  background-color: #ffbe61;
-  color: black;
+	background-color: #ffbe61;
+	color: black;
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+	background-color: #f53c3c;
+	color: #ffffff;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 
 #network {
-  transition: none;
-  color: #ffffff;
-  background: #383c4a;
+	transition: none;
+	color: #ffffff;
+	background: #383c4a;
 }
 
-#network.wifi, #network.ethener {
-  background-color: #26a65b;
+#network.wifi,
+#network.ethener {
+	background-color: #26a65b;
 }
 
-#network.disabled, #network.disconnected {
-  background-color: #f53c3c;
+#network.disabled,
+#network.disconnected {
+	background-color: #f53c3c;
 }
 
 @keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
+	to {
+		background-color: #ffffff;
+		color: #000000;
+	}
 }

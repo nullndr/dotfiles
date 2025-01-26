@@ -1,177 +1,177 @@
 {
-  "layer": "bottom", // Waybar at top layer
-  "position": "bottom", // Waybar position (top|bottom|left|right)
-  // "height": 30, // Waybar height (to be removed for auto height)
-  "margin": "5 5 5 5",
-  // "width": 1280, // Waybar width
-  // Choose the order of the modules
-  "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center": ["clock", "idle_inhibitor"],
-  "modules-right": [
-    "custom/pacman",
-    "custom/recorder",
-    "privacy",
-    "pulseaudio",
-    "backlight",
-    "battery",
-    "bluetooth",
-    "network"
-  ],
+	"layer": "bottom", // Waybar at top layer
+	"position": "bottom", // Waybar position (top|bottom|left|right)
+	// "height": 30, // Waybar height (to be removed for auto height)
+	"margin": "5 5 5 5",
+	// "width": 1280, // Waybar width
+	// Choose the order of the modules
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": ["clock", "idle_inhibitor"],
+	"modules-right": [
+		"custom/pacman",
+		"custom/recorder",
+		"privacy",
+		"pulseaudio",
+		"backlight",
+		"battery",
+		"bluetooth",
+		"network"
+	],
 
-  //***************************
-  //*  Modules configuration  *
-  //***************************
+	//***************************
+	//*  Modules configuration  *
+	//***************************
 
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "format": "{name}"
-  },
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}"
+	},
 
-  "custom/recorder": {
-    "format": "",
-    "return-type": "json",
-    "interval": 1,
-    "exec": "echo '{\"class\": \"recording\"}'",
-    "exec-if": "pgrep wf-recorder"
-  },
+	"custom/recorder": {
+		"format": "",
+		"return-type": "json",
+		"interval": 1,
+		"exec": "echo '{\"class\": \"recording\"}'",
+		"exec-if": "pgrep wf-recorder"
+	},
 
-  "custom/pacman": {
-    "format": "{} ",
-    "interval": 3600, // every hour
-    "exec": "checkupdates | wc -l", // # of updates
-    "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]", // always run; consider advanced run conditions
-    "on-click": "alacritty -e 'yay; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar", // update system
-    "signal": 8,
-    "tooltip": false
-  },
+	"custom/pacman": {
+		"format": "{} ",
+		"interval": 3600, // every hour
+		"exec": "checkupdates | wc -l", // # of updates
+		"exec-if": "[[ $(checkupdates | wc -l) != 0 ]]", // always run; consider advanced run conditions
+		"on-click": "alacritty -e 'yay; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar", // update system
+		"signal": 8,
+		"tooltip": false
+	},
 
-  "privacy": {
-    "icon-spacing": 4,
-    "icon-size": 18,
-    "transition-duration": 250,
-    "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-out",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-in",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      }
-    ]
-  },
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 18,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"type": "screenshare",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-out",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			},
+			{
+				"type": "audio-in",
+				"tooltip": true,
+				"tooltip-icon-size": 24
+			}
+		]
+	},
 
-  "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
+	"sway/mode": {
+		"format": "<span style=\"italic\">{}</span>"
+	},
 
-  "clock": {
-    "timezone": "Europe/Rome",
-    "format": "{:%H:%M}",
-    "format-alt": "{:%Y-%m-%d}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "on-click-right": "mode",
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
-    },
-    "actions": {
-      "on-click-right": "mode",
-      "on-click-forward": "tz_up",
-      "on-click-backward": "tz_down",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
-  },
+	"clock": {
+		"timezone": "Europe/Rome",
+		"format": "{:%H:%M}",
+		"format-alt": "{:%Y-%m-%d}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"on-click-right": "mode",
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"days": "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
+	},
 
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
 
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "reverse-scrolling": 1,
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{icon} {volume}% {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": "婢 {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["奄", "奔", "墳"]
-    },
-    "on-click": "pavucontrol",
-    "min-length": 13
-  },
+	"pulseaudio": {
+		// "scroll-step": 1, // %, can be a float
+		"reverse-scrolling": 1,
+		"format": "{volume}% {icon} {format_source}",
+		"format-bluetooth": "{icon} {volume}% {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": "婢 {format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["奄", "奔", "墳"]
+		},
+		"on-click": "pavucontrol",
+		"min-length": 13
+	},
 
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", ""],
-    "min-length": 7
-  },
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["", "", "", "", "", "", ""],
+		"min-length": 7
+	},
 
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", "", ""],
-    "on-update": "$HOME/.config/waybar/scripts/check_battery.sh"
-  },
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ",
+		"format-alt": "{time} {icon}",
+		"format-icons": ["", "", "", "", "", "", "", "", "", ""],
+		"on-update": "$HOME/.config/waybar/scripts/check_battery.sh"
+	},
 
-  "bluetooth": {
-    "format": " {status}",
-    "format-connected": " {device_alias}",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-    "on-click": "blueman-manager"
-  },
+	"bluetooth": {
+		"format": " {status}",
+		"format-connected": " {device_alias}",
+		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+		// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+		"on-click": "blueman-manager"
+	},
 
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": "{essid} ",
-    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    // "format-disconnected": "", //An empty format will hide the module.
-    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "{essid} ",
-    "tooltip-format-ethernet": "{ifname} ",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
-    "on-click": "alacritty -e 'nmtui'"
-  }
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": "{essid} ",
+		"format-ethernet": "{ipaddr}/{cidr} 󰊗",
+		// "format-disconnected": "", //An empty format will hide the module.
+		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+		"tooltip-format-wifi": "{essid} ",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50,
+		"on-click": "alacritty -e 'nmtui'"
+	}
 }
