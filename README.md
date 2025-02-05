@@ -5,6 +5,7 @@ List of my dot files and config files for my Arch Linux desktop setup.
 ## Programs
 
 - [Alacritty](https://github.com/alacritty/alacritty): Terminal emulator
+- [ClamAV](https://www.clamav.net/): An open-source antivirus engine for detecting trojans, viruses, malwares, etc
 - [Fuzzel](https://codeberg.org/dnkl/fuzzel): App launcher
 - [Ly](https://github.com/fairyglade/ly): Lightweight TUI (ncurses-like) display manager 
 - [Mako](https://github.com/emersion/mako): Wayland notification daemon
