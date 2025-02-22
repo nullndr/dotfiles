@@ -5,7 +5,17 @@
   truncation_symbol = "../"
 
 [nodejs]
-  disabled = true
+  disabled = false
 
 [os]
   disabled = false
+
+[localip]
+  disabled = false
+  ssh_only = false
+
+[time]
+  disabled = false
+
+[username]
+  show_always = true
