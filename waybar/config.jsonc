@@ -167,6 +167,7 @@
 	"bluetooth": {
 		"tooltip": true,
 		"format": "{status} 󰂯",
+		"format-disabled": "{status} 󰂲",
 		"format-connected": "{device_alias} 󰂯",
 		"format-connected-battery": "{device_alias} 󰂯 {device_battery_percentage}%",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
@@ -177,6 +178,7 @@
 		"interval": 3,
 		"tooltip": true,
 		"format": "{ifname}",
+		"format-disconnected": "󰖪",
 		"format-wifi": "{essid} 󰖩",
 		"format-ethernet": "{essid} 󰈀",
 		"tooltip-format": "{ifname} via {gwaddr} 󰈀",
