@@ -6,7 +6,7 @@
 }
 
 #waybar {
-	background: transparent;
+	background-color: transparent;
 }
 
 #waybar.hidden {
@@ -14,7 +14,7 @@
 }
 
 tooltip {
-	background: #383c4a;
+	background-color: #383c4a;
 	border-radius: 10px;
 }
 
@@ -38,7 +38,7 @@ tooltip label {
 #backlight {
 	transition: none;
 	border-radius: 10px;
-	background: #383c4a;
+	background-color: #383c4a;
 	color: #ffffff;
 	padding-top: 4px;
 	padding-bottom: 4px;
@@ -50,7 +50,7 @@ tooltip label {
 #workspaces {
 	transition: none;
 	border-radius: 10px;
-	background: #383c4a;
+	background-color: #383c4a;
 	margin: 4px;
 	color: #7c818c;
 }
@@ -62,7 +62,7 @@ tooltip label {
 #workspaces button:hover {
 	border-radius: inherit;
 	color: white;
-	background: #666768;
+	background-color: #666768;
 }
 
 #workspaces button.focused {
@@ -100,9 +100,9 @@ tooltip label {
 }
 
 #battery.critical:not(.charging) {
-	background-color: #f53c3c;
+	background-color: #383c4a;
 	color: #ffffff;
-	animation-name: blink;
+	animation-name: redblink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
@@ -119,9 +119,12 @@ tooltip label {
 	background-color: #f53c3c;
 }
 
-@keyframes blink {
+@keyframes redblink {
 	to {
-		background-color: #ffffff;
-		color: #000000;
+		background-color: #f53c3c;
 	}
+}
+
+#custom-recorder {
+	background-color: #26a65b;
 }

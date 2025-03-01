@@ -20,7 +20,7 @@
 	],
 
 	"sway/workspaces": {
-		"format": "{name} {icon}",
+		"format": "{name}  {icon}",
 		"disable-scroll": true,
 		"format-icons": {
 			"urgent": "",
@@ -78,7 +78,7 @@
 
 	"custom/recorder": {
 		"tooltip": true,
-		"format": "Recording screen",
+		"format": "Rec 󱣴",
 		"return-type": "json",
 		"interval": 1,
 		"exec": "echo '{\"class\": \"recording\"}'",
