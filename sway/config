@@ -17,18 +17,16 @@ set $background "/usr/share/backgrounds/sway/arch.png"
 # lock screen
 bindsym Mod4+l exec swaylock -l -f -e -F -i "$background" -s stretch
 
-# nyxt browser
-bindsym $mod+Shift+b exec nyxt
-
 # hyprpicker
 bindsym $mod+p exec hyprpicker -a
 
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
+# set $menu wofi --show drun -I | swaymsg
 set $menu fuzzel | swaymsg
 
 # Wob configuration
@@ -38,6 +36,8 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 gaps inner 2
 gaps outer 2
+
+default_border none
 
 # Colors
 client.background # 434c5e n/a
@@ -75,8 +75,8 @@ input "type:mouse" {
 }
 
 input "type:touchpad" {
-  tap enabled
-  tap_button_map lrm
+    tap enabled
+    tap_button_map lrm
 }
 
 input "1386:891:Wacom_One_by_Wacom_M_Pen" tool_mode * relative
