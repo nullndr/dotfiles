@@ -2,7 +2,7 @@
 
 file=~/.config/waybar/scripts/lowbat
 bat="/sys/class/power_supply/BAT1"
-crit="${1:-150}"
+crit="${1:-15}"
 stat="$(cat $bat/status)"
 perc="$(cat $bat/capacity)"
 
