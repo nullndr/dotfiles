@@ -7,6 +7,7 @@ List of my dot files and config files for my Arch Linux desktop setup.
 - [Alacritty](https://github.com/alacritty/alacritty): Terminal emulator
 - [ClamAV](https://www.clamav.net/): An open-source antivirus engine for detecting trojans, viruses, malwares, etc
 - [Fuzzel](https://codeberg.org/dnkl/fuzzel): App launcher
+- [Kitty](https://github.com/kovidgoyal/kitty): Terminal emulator
 - [Ly](https://github.com/fairyglade/ly): Lightweight TUI (ncurses-like) display manager 
 - [Mako](https://github.com/emersion/mako): Wayland notification daemon
 - [MPV](https://mpv.io/): MPV is a media player based on MPlayer 
