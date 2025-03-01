@@ -1,23 +1,15 @@
 * {
-	all: initial;
 	border: none;
 	border-radius: 0;
 	min-height: 20px;
 	font-family: "Symbols Nerd Font", monospace;
 }
 
-button {
-	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-left: 14px;
-	padding-right: 14px;
-}
-
-window#waybar {
+#waybar {
 	background: transparent;
 }
 
-window#waybar.hidden {
+#waybar.hidden {
 	opacity: 0.2;
 }
 
@@ -28,27 +20,6 @@ tooltip {
 
 tooltip label {
 	color: white;
-}
-
-#workspaces {
-	border-radius: 10px;
-	transition: none;
-	background: #383c4a;
-}
-
-#workspaces button {
-	color: #7c818c;
-	background: transparent;
-	font-size: 18px;
-	min-width: 0;
-}
-
-#workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
-	border-radius: inherit;
-	color: #383c4a;
-	background: #7c818c;
 }
 
 #custom-pacman,
@@ -65,14 +36,37 @@ tooltip label {
 #bluetooth,
 #network,
 #backlight {
-	padding-left: 8px;
-	padding-right: 8px;
+	transition: none;
 	border-radius: 10px;
 	background: #383c4a;
+	color: #ffffff;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 14px;
+	padding-right: 14px;
+	margin: 4px;
 }
 
-#bluetooth {
-	margin-right: 8px;
+#workspaces {
+	transition: none;
+	border-radius: 10px;
+	background: #383c4a;
+	margin: 4px;
+	color: #7c818c;
+}
+
+#workspaces button {
+	padding: 0;
+}
+
+#workspaces button:hover {
+	border-radius: inherit;
+	color: white;
+	background: #666768;
+}
+
+#workspaces button.focused {
+	color: white;
 }
 
 #bluetooth.connected,
@@ -83,30 +77,6 @@ tooltip label {
 #bluetooth.disabled,
 #bluetooth.off {
 	background-color: #f53c3c;
-}
-
-#mode {
-	transition: none;
-	color: #ffffff;
-}
-
-#custom-pacman,
-#custom-recorder,
-#clock,
-#privacy,
-#pulseaudio,
-#backlight,
-#disk,
-#memory,
-#battery {
-	margin-right: 8px;
-	transition: none;
-	color: #ffffff;
-}
-
-#idle_inhibitor {
-	transition: none;
-	color: #ffffff;
 }
 
 #idle_inhibitor.activated {
@@ -139,12 +109,6 @@ tooltip label {
 	animation-direction: alternate;
 }
 
-#network {
-	transition: none;
-	color: #ffffff;
-	background: #383c4a;
-}
-
 #network.wifi,
 #network.ethener {
 	background-color: #26a65b;
@@ -161,6 +125,3 @@ tooltip label {
 		color: #000000;
 	}
 }
-
-/* #privacy-item {
-} */
