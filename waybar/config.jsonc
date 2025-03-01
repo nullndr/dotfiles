@@ -20,8 +20,13 @@
 	],
 
 	"sway/workspaces": {
-		"format": "{name}",
-		"disable-scroll": true
+		"format": "{name} {icon}",
+		"disable-scroll": true,
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
 	},
 
 	"sway/mode": {
@@ -68,7 +73,7 @@
 		"interval": 60,
 		"exec": "checkupdates | wc -l",
 		"exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-		"signal": 8
+		"signal": 1
 	},
 
 	"custom/recorder": {
@@ -106,11 +111,11 @@
 	"pulseaudio": {
 		"tooltip": true,
 		"format": "{volume}% {icon}    {format_source}",
-		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth": "{volume}% {icon}    {format_source}",
 		"format-bluetooth-muted": "󰂲 {format_source}",
-		"format-muted": " {format_source}",
+		"format-muted": "{volume}%     {format_source}",
 		"format-source": "{volume}% ",
-		"format-source-muted": "",
+		"format-source-muted": "{volume}% ",
 		"format-icons": {
 			"headphone": "",
 			"hands-free": "󰋎",
@@ -161,9 +166,9 @@
 
 	"bluetooth": {
 		"tooltip": true,
-		"format": "󰂯 {status}",
-		"format-connected": "󰂯 {device_alias}",
-		"format-connected-battery": "󰂯 {device_alias} {device_battery_percentage}%",
+		"format": "{status} 󰂯",
+		"format-connected": "{device_alias} 󰂯",
+		"format-connected-battery": "{device_alias} 󰂯 {device_battery_percentage}%",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
 		"on-click": "blueman-manager"
 	},

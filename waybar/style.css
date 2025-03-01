@@ -42,8 +42,8 @@ tooltip label {
 	color: #ffffff;
 	padding-top: 4px;
 	padding-bottom: 4px;
-	padding-left: 14px;
-	padding-right: 14px;
+	padding-left: 8px;
+	padding-right: 8px;
 	margin: 4px;
 }
 
@@ -85,8 +85,8 @@ tooltip label {
 
 #pulseaudio.muted,
 #pulseaudio.source-muted {
-	background-color: #90b1b1;
-	color: #2a5c45;
+	background-color: #f53c3c;
+	color: white;
 }
 
 #battery.charging {
