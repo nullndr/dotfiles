@@ -1,17 +1,41 @@
 #! /usr/bin/env bash
 
-FILE=~/.config/waybar/scripts/.low_bat
-
+file=~/.config/waybar/scripts/lowbat
 bat="/sys/class/power_supply/BAT1"
-CRIT="${1:-15}"
+crit="${1:-150}"
 stat="$(cat $bat/status)"
 perc="$(cat $bat/capacity)"
 
-if [[ $perc -le $CRIT ]] && [[ "$stat" == "Discharging" ]] && [[ ! -f "$FILE" ]]; then
-  notify-send --urgency=critical --icon=dialog-warning "Battery Low" "Current charge: $perc%"
-  touch $FILE
-fi
+notifysend() {
+  local pid
+  local title="Low Battery"
+  local body="Current charge: $perc%"
+  if [[ ! -f "$file" ]]; then
+    pid="$(notify-send --print-id --urgency=critical --icon=dialog-warning "$title" "$body")"
+  else
+    pid="$(notify-send --print-id --replace-id="$(cat $file)" --urgency=critical --icon=dialog-warning "$title" "$body")"
+  fi
 
-if [[ -f "$FILE" ]] && [[ "$stat" == "Charging" ]]; then
-  rm $FILE
-fi
+  echo $pid > $file
+}
+
+main() {
+  if [[ "$stat" == "Discharging" ]] && [[ "$perc" -le "$crit" ]] && [[ ! -f "$file" ]]; then
+    notifysend
+  fi
+
+  if [[ -f "$file" ]]; then
+    case "$stat" in
+      "Charging" ) 
+        rm $file
+      ;;
+      "Discharging" )
+        notifysend
+      ;;
+      * );;
+    esac
+
+  fi
+}
+
+main $@
