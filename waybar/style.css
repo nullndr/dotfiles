@@ -1,9 +1,16 @@
 * {
+	all: initial;
 	border: none;
 	border-radius: 0;
-	/* `otf-font-awesome` is required to be installed for icons */
-	font-family: Liberation Mono;
 	min-height: 20px;
+	font-family: "Symbols Nerd Font", monospace;
+}
+
+button {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 14px;
+	padding-right: 14px;
 }
 
 window#waybar {
@@ -14,24 +21,29 @@ window#waybar.hidden {
 	opacity: 0.2;
 }
 
+tooltip {
+	background: #383c4a;
+	border-radius: 10px;
+}
+
+tooltip label {
+	color: white;
+}
+
 #workspaces {
 	border-radius: 10px;
 	transition: none;
 	background: #383c4a;
-	margin-right: 8px;
 }
 
 #workspaces button {
-	transition: none;
 	color: #7c818c;
 	background: transparent;
-	padding: 5px;
 	font-size: 18px;
+	min-width: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
 	border-radius: inherit;
@@ -39,16 +51,17 @@ window#waybar.hidden {
 	background: #7c818c;
 }
 
-#workspaces button.focused {
-	color: white;
-}
-
 #custom-pacman,
+#custom-recorder,
 #mode,
 #clock,
+#privacy,
+#privacy-item,
 #idle_inhibitor,
 #battery,
 #pulseaudio,
+#disk,
+#memory,
 #bluetooth,
 #network,
 #backlight {
@@ -56,11 +69,6 @@ window#waybar.hidden {
 	padding-right: 8px;
 	border-radius: 10px;
 	background: #383c4a;
-}
-
-#custom-pacman {
-	transition: none;
-	color: #ffffff;
 }
 
 #bluetooth {
@@ -82,10 +90,18 @@ window#waybar.hidden {
 	color: #ffffff;
 }
 
-#clock {
+#custom-pacman,
+#custom-recorder,
+#clock,
+#privacy,
+#pulseaudio,
+#backlight,
+#disk,
+#memory,
+#battery {
+	margin-right: 8px;
 	transition: none;
 	color: #ffffff;
-	margin-right: 8px;
 }
 
 #idle_inhibitor {
@@ -97,28 +113,10 @@ window#waybar.hidden {
 	background-color: #26a65b;
 }
 
-#pulseaudio {
-	margin-right: 8px;
-	transition: none;
-	color: #ffffff;
-}
-
 #pulseaudio.muted,
 #pulseaudio.source-muted {
 	background-color: #90b1b1;
 	color: #2a5c45;
-}
-
-#backlight {
-	margin-right: 8px;
-	transition: none;
-	color: #ffffff;
-}
-
-#battery {
-	margin-right: 8px;
-	transition: none;
-	color: #ffffff;
 }
 
 #battery.charging {
@@ -163,3 +161,6 @@ window#waybar.hidden {
 		color: #000000;
 	}
 }
+
+/* #privacy-item {
+} */

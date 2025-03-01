@@ -1,10 +1,9 @@
 {
-	"layer": "bottom", // Waybar at top layer
-	"position": "bottom", // Waybar position (top|bottom|left|right)
-	// "height": 30, // Waybar height (to be removed for auto height)
+	"mode": "dock",
+	"reload_style_on_change": true,
+	"layer": "bottom",
+	"position": "bottom",
 	"margin": "5 5 5 5",
-	// "width": 1280, // Waybar width
-	// Choose the order of the modules
 	"modules-left": ["sway/workspaces", "sway/mode"],
 	"modules-center": ["clock", "idle_inhibitor"],
 	"modules-right": [
@@ -14,69 +13,27 @@
 		"pulseaudio",
 		"backlight",
 		"battery",
+		"disk",
+		"memory",
 		"bluetooth",
 		"network"
 	],
 
-	//***************************
-	//*  Modules configuration  *
-	//***************************
-
 	"sway/workspaces": {
-		"disable-scroll": true,
-		"format": "{name}"
-	},
-
-	"custom/recorder": {
-		"format": "",
-		"return-type": "json",
-		"interval": 1,
-		"exec": "echo '{\"class\": \"recording\"}'",
-		"exec-if": "pgrep wf-recorder"
-	},
-
-	"custom/pacman": {
-		"format": "{} ",
-		"interval": 3600, // every hour
-		"exec": "checkupdates | wc -l", // # of updates
-		"exec-if": "[[ $(checkupdates | wc -l) != 0 ]]", // always run; consider advanced run conditions
-		"on-click": "alacritty -e 'yay; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar", // update system
-		"signal": 8,
-		"tooltip": false
-	},
-
-	"privacy": {
-		"icon-spacing": 4,
-		"icon-size": 18,
-		"transition-duration": 250,
-		"modules": [
-			{
-				"type": "screenshare",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			},
-			{
-				"type": "audio-out",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			},
-			{
-				"type": "audio-in",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			}
-		]
+		"format": "{name}",
+		"disable-scroll": true
 	},
 
 	"sway/mode": {
-		"format": "<span style=\"italic\">{}</span>"
+		"format": "{}"
 	},
 
 	"clock": {
-		"timezone": "Europe/Rome",
+		"tooltip": true,
+		"timezones": ["Europe/Rome"],
 		"format": "{:%H:%M}",
 		"format-alt": "{:%Y-%m-%d}",
-		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"tooltip-format": "{calendar}",
 		"calendar": {
 			"mode": "year",
 			"mode-mon-col": 3,
@@ -92,15 +49,12 @@
 			}
 		},
 		"actions": {
-			"on-click-right": "mode",
-			"on-click-forward": "tz_up",
-			"on-click-backward": "tz_down",
-			"on-scroll-up": "shift_up",
-			"on-scroll-down": "shift_down"
+			"on-click-right": "mode"
 		}
 	},
 
 	"idle_inhibitor": {
+		"tooltip": true,
 		"format": "{icon}",
 		"format-icons": {
 			"activated": "",
@@ -108,69 +62,122 @@
 		}
 	},
 
+	"custom/pacman": {
+		"tooltip": false,
+		"format": "{} ",
+		"interval": 60,
+		"exec": "checkupdates | wc -l",
+		"exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+		"signal": 8
+	},
+
+	"custom/recorder": {
+		"tooltip": true,
+		"format": "Recording screen",
+		"return-type": "json",
+		"interval": 1,
+		"exec": "echo '{\"class\": \"recording\"}'",
+		"exec-if": "pgrep wf-recorder"
+	},
+
+	"privacy": {
+		"icon-spacing": 4,
+		"icon-size": 18,
+		"transition-duration": 250,
+		"modules": [
+			{
+				"tooltip": true,
+				"type": "screenshare",
+				"tooltip-icon-size": 24
+			},
+			{
+				"tooltip": true,
+				"type": "audio-out",
+				"tooltip-icon-size": 24
+			},
+			{
+				"tooltip": true,
+				"type": "audio-in",
+				"tooltip-icon-size": 24
+			}
+		]
+	},
+
 	"pulseaudio": {
-		// "scroll-step": 1, // %, can be a float
-		"reverse-scrolling": 1,
-		"format": "{volume}% {icon} {format_source}",
-		"format-bluetooth": "{icon} {volume}% {format_source}",
-		"format-bluetooth-muted": " {icon} {format_source}",
-		"format-muted": "婢 {format_source}",
+		"tooltip": true,
+		"format": "{volume}% {icon}    {format_source}",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": "󰂲 {format_source}",
+		"format-muted": " {format_source}",
 		"format-source": "{volume}% ",
 		"format-source-muted": "",
 		"format-icons": {
 			"headphone": "",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": ["奄", "奔", "墳"]
+			"hands-free": "󰋎",
+			"headset": "󰋎",
+			"default": ["", "", ""]
 		},
 		"on-click": "pavucontrol",
 		"min-length": 13
 	},
 
 	"backlight": {
+		"tooltip": true,
 		"device": "intel_backlight",
 		"format": "{percent}% {icon}",
-		"format-icons": ["", "", "", "", "", "", ""],
+		"format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
 		"min-length": 7
 	},
 
 	"battery": {
+		"interval": 3,
+		"tooltip": true,
 		"states": {
 			"warning": 30,
 			"critical": 15
 		},
 		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}% ",
+		"format-charging": "{capacity}% 󰂄",
 		"format-plugged": "{capacity}% ",
 		"format-alt": "{time} {icon}",
-		"format-icons": ["", "", "", "", "", "", "", "", "", ""],
+		"format-icons": ["󰁻", "󰁼", "󰁾", "󰂀", "󰂂", "󰁹"],
+		"tooltip-format": "{timeTo}\nCapacity: {capacity}\nPower: {power}w\nCycles: {cycles}\nHealth: {health}%",
 		"on-update": "$HOME/.config/waybar/scripts/check_battery.sh"
 	},
 
+	"disk": {
+		"interval": 3,
+		"tooltip": true,
+		"format": "{used} ",
+		"path": "/"
+	},
+
+	"memory": {
+		"interval": 3,
+		"tooltip": true,
+		"format": "{used}GiB ",
+		"max-length": 10
+	},
+
 	"bluetooth": {
-		"format": " {status}",
-		"format-connected": " {device_alias}",
-		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-		// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+		"tooltip": true,
+		"format": "󰂯 {status}",
+		"format-connected": "󰂯 {device_alias}",
+		"format-connected-battery": "󰂯 {device_alias} {device_battery_percentage}%",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
 		"on-click": "blueman-manager"
 	},
 
 	"network": {
+		"interval": 3,
+		"tooltip": true,
 		"format": "{ifname}",
-		"format-wifi": "{essid} ",
-		"format-ethernet": "{ipaddr}/{cidr} 󰊗",
-		// "format-disconnected": "", //An empty format will hide the module.
-		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
-		"tooltip-format-wifi": "{essid} ",
-		"tooltip-format-ethernet": "{ifname} ",
-		"tooltip-format-disconnected": "Disconnected",
+		"format-wifi": "{essid} 󰖩",
+		"format-ethernet": "{essid} 󰈀",
+		"tooltip-format": "{ifname} via {gwaddr} 󰈀",
+		"tooltip-format-wifi": "{ipaddr} on {ifname} via {essid} ",
+		"tooltip-format-ethernet": "{ipaddr} on {ifname} via {essid} 󰈀",
+		"tooltip-format-disconnected": "󰖪",
 		"max-length": 50,
 		"on-click": "nm-connection-editor"
 	}
