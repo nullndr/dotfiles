@@ -1,4 +1,5 @@
 * {
+	all: initial;
 	border: none;
 	border-radius: 0;
 	min-height: 20px;
@@ -26,11 +27,10 @@ tooltip label {
 #custom-recorder,
 #mode,
 #clock,
-#privacy,
-#idle_inhibitor,
 #battery,
 #pulseaudio,
 #disk,
+#privacy,
 #memory,
 #bluetooth,
 #network,
@@ -43,29 +43,29 @@ tooltip label {
 	padding-bottom: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
-	margin: 4px;
+	margin-right: 4px;
+	margin-left: 4px;
 }
 
 #workspaces {
 	transition: none;
 	border-radius: 10px;
 	background-color: #383c4a;
-	margin: 4px;
 	color: #7c818c;
+	margin-right: 4px;
+	margin-left: 4px;
 }
 
 #workspaces button {
-	padding: 0;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 #workspaces button:hover {
 	border-radius: inherit;
-	color: white;
 	background-color: #666768;
-}
-
-#workspaces button.focused {
-	color: white;
 }
 
 #bluetooth.connected,
