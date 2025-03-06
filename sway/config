@@ -205,9 +205,9 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Resizing containers
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "Resize"
 
-mode "resize" {
+mode "Resize" {
     # left will shrink the containers width
     bindsym $left resize shrink width 10px
     # right will grow the containers width
@@ -219,12 +219,13 @@ mode "resize" {
 
     # Return to default mode
     bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 # screenshot
-bindsym Print mode "screenshot"
+bindsym Print mode "Screenshot"
 
-mode "screenshot" {
+mode "Screenshot" {
     bindsym Mod4+s+v exec grimshot save active - | swappy -f -
     bindsym $mod+c+v exec grimshot copy active
     bindsym $mod+s+a exec grimshot save area - | swappy -f -
@@ -235,6 +236,7 @@ mode "screenshot" {
 
     # Return to default mode
     bindsym Escape mode "default"
+    bindsym Print mode "default"
 }
 
 # Status Bar:
