@@ -13,6 +13,7 @@
 		"memory",
 		"disk",
 		"pulseaudio",
+		"pulseaudio#microphone",
 		"backlight",
 		"battery",
 		"bluetooth",
@@ -110,10 +111,10 @@
 
 	"pulseaudio": {
 		"tooltip": true,
-		"format": "{volume}% {icon}    {format_source}",
-		"format-bluetooth": "{volume}% {icon}    {format_source}",
-		"format-bluetooth-muted": "󰂲 {format_source}",
-		"format-muted": "{volume}%     {format_source}",
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{volume}% {icon}",
+		"format-bluetooth-muted": "{volume}% 󰂲",
+		"format-muted": "{volume}% ",
 		"format-source": "{volume}% ",
 		"format-source-muted": "{volume}% ",
 		"format-icons": {
@@ -122,16 +123,21 @@
 			"headset": "󰋎",
 			"default": ["", "", ""]
 		},
-		"on-click": "pavucontrol",
-		"min-length": 13
+		"on-click": "pavucontrol"
+	},
+
+	"pulseaudio#microphone": {
+		"tooltip": true,
+		"format": "{format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "{volume}% "
 	},
 
 	"backlight": {
 		"tooltip": true,
 		"device": "intel_backlight",
 		"format": "{percent}% {icon}",
-		"format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
-		"min-length": 7
+		"format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
 	},
 
 	"battery": {
@@ -145,7 +151,7 @@
 		"format-charging": "{capacity}% 󰂄",
 		"format-plugged": "{capacity}% ",
 		"format-icons": ["󰁻", "󰁼", "󰁾", "󰂀", "󰂂", "󰁹"],
-		"tooltip-format": "{timeTo}\nCapacity: {capacity}\nPower: {power}w\nCycles: {cycles}\nHealth: {health}%",
+		"tooltip-format": "{timeTo}\nCapacity: {capacity}%\nPower: {power:0.2f}w\nCycles: {cycles}\nHealth: {health}%",
 		"on-update": "$HOME/.config/waybar/scripts/check_battery.sh"
 	},
 

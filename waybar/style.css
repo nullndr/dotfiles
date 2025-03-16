@@ -28,13 +28,11 @@ tooltip label {
 #mode,
 #clock,
 #battery,
-#pulseaudio,
 #disk,
 #privacy,
 #memory,
 #bluetooth,
-#network,
-#backlight {
+#network {
 	transition: none;
 	border-radius: 10px;
 	background-color: #383c4a;
@@ -45,6 +43,28 @@ tooltip label {
 	padding-right: 8px;
 	margin-right: 4px;
 	margin-left: 4px;
+}
+
+#backlight,
+#pulseaudio {
+	transition: none;
+	background-color: #383c4a;
+	color: #ffffff;
+	margin: 0px;
+}
+
+#pulseaudio:not(.microphone) {
+	margin-left: 4px;
+	border-radius: 10px 0 0 10px;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+
+#backlight {
+	border-radius: 0 10px 10px 0;
+	padding-left: 8px;
+	padding-right: 8px;
+	margin-right: 4px;
 }
 
 #workspaces {
@@ -80,12 +100,6 @@ tooltip label {
 
 #idle_inhibitor.activated {
 	background-color: #26a65b;
-}
-
-#pulseaudio.muted,
-#pulseaudio.source-muted {
-	background-color: #f53c3c;
-	color: white;
 }
 
 #battery.charging {
