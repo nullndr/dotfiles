@@ -10,10 +10,6 @@
 	background-color: transparent;
 }
 
-#waybar.hidden {
-	opacity: 0.2;
-}
-
 tooltip {
 	background-color: #383c4a;
 	border-radius: 10px;
@@ -23,59 +19,60 @@ tooltip label {
 	color: white;
 }
 
+#connections {
+	border-radius: 10px;
+	background-color: #383c4a;
+	color: #ffffff;
+	margin-left: 8px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+#misc {
+	border-radius: 10px;
+	background-color: #383c4a;
+	color: #ffffff;
+	margin-left: 8px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+#system {
+	border-radius: 10px;
+	background-color: #383c4a;
+	color: #ffffff;
+	margin-left: 8px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
 #custom-pacman,
 #custom-recorder,
 #mode,
 #clock,
-#battery,
-#disk,
+#workspaces,
+#custom-recorder,
+#custom-power,
+#privacy {
+	border-radius: 10px;
+	background-color: #383c4a;
+	color: #ffffff;
+}
+
+#custom-pacman,
+#custom-recorder,
+#mode,
+#custom-power,
+#privacy {
+	margin-left: 8px;
+}
+
+#custom-pacman,
+#custom-recorder,
+#mode,
+#clock,
 #privacy,
-#memory,
-#bluetooth,
-#network {
-	transition: none;
-	border-radius: 10px;
-	background-color: #383c4a;
-	color: #ffffff;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-left: 8px;
-	padding-right: 8px;
-	margin-right: 4px;
-	margin-left: 4px;
-}
-
-#backlight,
-#pulseaudio {
-	transition: none;
-	background-color: #383c4a;
-	color: #ffffff;
-	margin: 0px;
-}
-
-#pulseaudio:not(.microphone) {
-	margin-left: 4px;
-	border-radius: 10px 0 0 10px;
-	padding-right: 8px;
-	padding-left: 8px;
-}
-
-#backlight {
-	border-radius: 0 10px 10px 0;
-	padding-left: 8px;
-	padding-right: 8px;
-	margin-right: 4px;
-}
-
-#workspaces {
-	transition: none;
-	border-radius: 10px;
-	background-color: #383c4a;
-	color: #7c818c;
-	margin-right: 4px;
-	margin-left: 4px;
-}
-
+#custom-power,
 #workspaces button {
 	padding-top: 4px;
 	padding-bottom: 4px;
@@ -83,38 +80,23 @@ tooltip label {
 	padding-right: 8px;
 }
 
-#workspaces button:hover {
-	border-radius: inherit;
-	background-color: #666768;
-}
-
-#bluetooth.connected,
-#bluetooth.on {
-	background-color: #26a65b;
-}
-
-#bluetooth.disabled,
-#bluetooth.off {
-	background-color: #f53c3c;
-}
-
-#idle_inhibitor.activated {
-	background-color: #26a65b;
+#pulseaudio:not(.microphone),
+#pulseaudio.microphone,
+#memory,
+#backlight,
+#bluetooth {
+	padding-right: 8px;
 }
 
 #battery.charging {
-	color: #ffffff;
-	background-color: #26a65b;
+	color: #32e47c;
 }
 
 #battery.warning:not(.charging) {
-	background-color: #ffbe61;
-	color: black;
+	color: #ffbe61;
 }
 
 #battery.critical:not(.charging) {
-	background-color: #383c4a;
-	color: #ffffff;
 	animation-name: redblink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
@@ -122,22 +104,17 @@ tooltip label {
 	animation-direction: alternate;
 }
 
-#network.wifi,
-#network.ethener {
-	background-color: #26a65b;
-}
-
-#network.disabled,
-#network.disconnected {
-	background-color: #f53c3c;
-}
-
 @keyframes redblink {
 	to {
-		background-color: #f53c3c;
+		color: #f53c3c;
 	}
 }
 
-#custom-recorder {
+#workspaces button:hover {
+	border-radius: inherit;
+	background-color: #666768;
+}
+
+#idle_inhibitor.activated {
 	background-color: #26a65b;
 }

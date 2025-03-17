@@ -10,15 +10,26 @@
 		"custom/pacman",
 		"custom/recorder",
 		"privacy",
-		"memory",
-		"disk",
-		"pulseaudio",
-		"pulseaudio#microphone",
-		"backlight",
-		"battery",
-		"bluetooth",
-		"network"
+		"group/system",
+		"group/misc",
+		"group/connections",
+		"custom/power"
 	],
+
+	"group/system": {
+		"orientation": "inherit",
+		"modules": ["memory", "disk"]
+	},
+
+	"group/misc": {
+		"orientation": "inherit",
+		"modules": ["pulseaudio", "pulseaudio#microphone", "backlight", "battery"]
+	},
+
+	"group/connections": {
+		"orientation": "inherit",
+		"modules": ["bluetooth", "network"]
+	},
 
 	"sway/workspaces": {
 		"format": "{name}  {icon}",
@@ -37,8 +48,8 @@
 	"clock": {
 		"tooltip": true,
 		"timezones": ["Europe/Rome"],
-		"format": "{:%H:%M}",
-		"format-alt": "{:%Y-%m-%d}",
+		"format": "{:%a %d %H:%M}",
+		"format-alt": "{%H:%M}",
 		"tooltip-format": "{calendar}",
 		"calendar": {
 			"mode": "year",
@@ -69,7 +80,7 @@
 	},
 
 	"custom/pacman": {
-		"tooltip": false,
+		"tooltip": true,
 		"format": "{} ",
 		"interval": 60,
 		"exec": "checkupdates | wc -l",
@@ -84,6 +95,12 @@
 		"interval": 1,
 		"exec": "echo '{\"class\": \"recording\"}'",
 		"exec-if": "pgrep wf-recorder"
+	},
+
+	"custom/power": {
+		"format": "⏻",
+		"on-click": "wlogout",
+		"tooltip": "Power options"
 	},
 
 	"privacy": {
@@ -167,18 +184,18 @@
 	"memory": {
 		"interval": 3,
 		"tooltip": true,
-		"format": "{used}GiB ",
-		"tooltip-format": "{used}GiB used out of {total}GiB ({percentage}%)",
-		"max-length": 10
+		"format": "{used:0.2f}GiB ",
+		"tooltip-format": "{used:0.2f}GiB used out of {total}GiB ({percentage}%)"
 	},
 
 	"bluetooth": {
 		"tooltip": true,
-		"format": "{status} 󰂯",
-		"format-disabled": "{status} 󰂲",
+		"format": "󰂯",
+		"format-disabled": "󰂲",
 		"format-connected": "{device_alias} 󰂯",
 		"format-connected-battery": "{device_alias} 󰂯 {device_battery_percentage}%",
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+		"tooltip-format-disabled": "Disabled",
 		"on-click": "blueman-manager"
 	},
 
@@ -187,12 +204,12 @@
 		"tooltip": true,
 		"format": "{ifname}",
 		"format-disconnected": "󰖪",
-		"format-wifi": "{essid} 󰖩",
-		"format-ethernet": "{essid} 󰈀",
+		"format-wifi": "󰖩",
+		"format-ethernet": "󰈀",
 		"tooltip-format": "{ifname} via {gwaddr} 󰈀",
-		"tooltip-format-wifi": "{ipaddr} on {ifname} via {essid} ",
-		"tooltip-format-ethernet": "{ipaddr} on {ifname} via {essid} 󰈀",
-		"tooltip-format-disconnected": "󰖪",
+		"tooltip-format-wifi": "{ipaddr} ({ifname}) via {essid} ",
+		"tooltip-format-ethernet": "{ipaddr} ({ifname}) via {essid} 󰈀",
+		"tooltip-format-disconnected": "Disconnected",
 		"max-length": 50,
 		"on-click": "nm-connection-editor"
 	}
