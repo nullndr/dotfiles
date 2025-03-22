@@ -1,33 +1,39 @@
-[font.normal]
-family = "MesloLGS NF"
+[font]
+  bold                = { family = "Jetbrains Mono", style = "Bold" }
+  bold_italic         = { family = "Jetbrains Mono", style = "Bold Italic" }
+  builtin_box_drawing = true
+  glyph_offset        = { x = 0, y = 0 }
+  italic              = { family = "Jetbrains Mono", style = "Italic" }
+  normal              = { family = "Jetbrains Mono", style = "regular" }
+  size                = 12
 
 [colors.bright]
-black = "#686868"
-blue = "#57c7ff"
-cyan = "#9aedfe"
-green = "#5af78e"
-magenta = "#ff6ac1"
-red = "#ff5c57"
-white = "#f1f1f0"
-yellow = "#f3f99d"
+  black   = "#686868"
+  blue    = "#57c7ff"
+  cyan    = "#9aedfe"
+  green   = "#5af78e"
+  magenta = "#ff6ac1"
+  red     = "#ff5c57"
+  white   = "#f1f1f0"
+  yellow  = "#f3f99d"
 
 [colors.normal]
-black = "#282a36"
-blue = "#57c7ff"
-cyan = "#9aedfe"
-green = "#5af78e"
-magenta = "#ff6ac1"
-red = "#ff5c57"
-white = "#f1f1f0"
-yellow = "#f3f99d"
+  black   = "#282a36"
+  blue    = "#57c7ff"
+  cyan    = "#9aedfe"
+  green   = "#5af78e"
+  magenta = "#ff6ac1"
+  red     = "#ff5c57"
+  white   = "#ffffff"
+  yellow  = "#f3f99d"
 
 [colors.primary]
-background = "#282a36"
-foreground = "#eff0eb"
+  background = "#282a36"
+  foreground = "#eff0eb"
 
 [cursor]
-style.shape = "Block"
-style.blinking = "Always"
+  style.blinking = "Always"
+  style.shape    = "Block"
 
 [shell]
-program = "/bin/zsh"
+  program = "/bin/zsh"
