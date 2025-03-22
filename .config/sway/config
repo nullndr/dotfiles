@@ -21,7 +21,7 @@ bindsym Mod4+l exec swaylock -l -f -e -F -i "$background" -s stretch
 bindsym $mod+p exec hyprpicker -a
 
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -37,14 +37,16 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 gaps inner 2
 gaps outer 2
 
+font JetBrains 10
+
 default_border none
 
-# Colors
-client.background # 434c5e n/a
-client.focused #434c5e #434c5e #eceff4 #434c5e #434c5e
-client.focused_inactive #3b4252 #3b4252 #eceff4 #3b4252 #3b4252
-client.unfocused #3b4252 #3b4252 #eceff4 #3b4252 #3b4252
-client.urgent #434c5e #434c5e #eceff4 #434c5e #434c5e
+client.focused #434c5e #434c5e #eceff4
+client.focused_inactive #3b4252 #3b4252 #eceff4
+client.unfocused #3b4252 #3b4252 #eceff4
+client.urgent #434c5e #434c5e #eceff4
+
+seat seat0 xcursor_theme BreezeX-Dark
 
 ### Output configuration
 #
@@ -226,12 +228,13 @@ mode "Resize" {
 bindsym Print mode "Screenshot"
 
 mode "Screenshot" {
-    bindsym Mod4+s+v exec grimshot save active - | swappy -f -
+    bindsym $mod+s+v exec grimshot save active - | swappy -f -
     bindsym $mod+c+v exec grimshot copy active
     bindsym $mod+s+a exec grimshot save area - | swappy -f -
     bindsym $mod+c+a exec grimshot copy area
-    # bindsym Mod4+Mod1+p exec grimshot save output - | swappy -f -
-    bindsym Mod4+s+w  exec grimshot save window - | swappy -f -
+    bindsym $mod+s+o exec grimshot save output - | swappy -f -
+    bindsym $mod+c+o exec grimshot copy output
+    bindsym $mod+s+W exec grimshot save window - | swappy -f -
     bindsym $mod+c+w exec grimshot copy window
 
     # Return to default mode
