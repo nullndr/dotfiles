@@ -1,0 +1,134 @@
+{
+	"$schema": "/etc/xdg/swaync/configSchema.json",
+	"positionX": "right",
+	"positionY": "top",
+	"layer": "overlay",
+	"control-center-layer": "top",
+	"layer-shell": true,
+	"cssPriority": "application",
+	"control-center-margin-top": 5,
+	"control-center-margin-bottom": 2,
+	"control-center-margin-right": 5,
+	"control-center-margin-left": 0,
+	"notification-2fa-action": true,
+	"notification-inline-replies": false,
+	"notification-icon-size": 64,
+	"notification-body-image-height": 100,
+	"notification-body-image-width": 200,
+	"timeout": 10,
+	"timeout-low": 5,
+	"timeout-critical": 0,
+	"fit-to-screen": true,
+	"relative-timestamps": true,
+	"control-center-width": 500,
+	"control-center-height": 600,
+	"notification-window-width": 500,
+	"keyboard-shortcuts": true,
+	"image-visibility": "when-available",
+	"transition-time": 200,
+	"hide-on-clear": false,
+	"hide-on-action": false,
+	"script-fail-notify": true,
+	"scripts": {
+		"example-script": {
+			"exec": "echo 'Do something...'",
+			"urgency": "Normal"
+		},
+		"example-action-script": {
+			"exec": "echo 'Do something actionable!'",
+			"urgency": "Normal",
+			"run-on": "action"
+		}
+	},
+	"notification-visibility": {
+		"example-name": {
+			"state": "muted",
+			"urgency": "Low",
+			"app-name": "Spotify"
+		}
+	},
+	"widgets": [
+		"inhibitors",
+		"title",
+		"mpris",
+		"buttons-grid",
+		"volume",
+		"backlight",
+		"dnd",
+		"notifications"
+	],
+	"widget-config": {
+		"inhibitors": {
+			"text": "Inhibitors",
+			"button-text": "Clear All",
+			"clear-all-button": true
+		},
+		"title": {
+			"text": "Notifications center",
+			"clear-all-button": true,
+			"button-text": "Clear All"
+		},
+		"label": {
+			"max-lines": 5,
+			"text": "Label Text"
+		},
+		"mpris": {
+			"image-size": 96,
+			"image-radius": 12
+		},
+		"buttons-grid": {
+			"actions": [
+				{
+					"label": "",
+					"command": "systemctl poweroff"
+				},
+				{
+					"label": "",
+					"command": "systemctl reboot"
+				},
+				{
+					"label": "󰍃",
+					"command": "swaymsg exit"
+				},
+				{
+					"label": "",
+					"command": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+					"type": "toggle"
+				},
+				{
+					"label": "",
+					"command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+					"type": "toggle"
+				},
+				{
+					"label": "󰖩",
+					"command": "nm-connection-editor"
+				},
+				{
+					"label": "󰂯",
+					"command": "blueman-manager"
+				},
+				{
+					"label": "󰹑",
+					"command": "grimshot save area - | swappy -f -"
+				},
+				{
+					"label": "",
+					"command": "./home/andrea/.config/sway/scripts/toggle-screen-recorder.sh"
+				}
+			]
+		},
+		"volume": {
+			"show-per-app": true,
+			"show-per-app-icon": true,
+			"show-per-app-label": true,
+			"label": ""
+		},
+		"backlight": {
+			"label": "󰃠"
+		},
+		"dnd": {
+			"text": "Do Not Disturb"
+		}
+	}
+}
