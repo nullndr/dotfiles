@@ -1,7 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 [aws]
-  symbol = '☁️ '
+  disabled = true
+  symbol   = '☁️ '
 
 [directory]
   truncate_to_repo  = false
@@ -13,12 +14,8 @@
 [os]
   disabled = false
 
-[localip]
-  disabled = false
-  ssh_only = false
-
 [time]
-  disabled = false
+  disabled = true
 
 [username]
   show_always = true
