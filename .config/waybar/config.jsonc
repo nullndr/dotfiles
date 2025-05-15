@@ -54,6 +54,16 @@
 		"format": "{}"
 	},
 
+	"hyprland/workspaces": {
+		"format": "{name}  {icon}",
+		"disable-scroll": true,
+		"format-icons": {
+			"urgent": "",
+			"active": "",
+			"default": ""
+		}
+	},
+
 	"clock": {
 		"tooltip": true,
 		"timezones": ["Europe/Rome"],
@@ -109,7 +119,7 @@
 	"custom/power": {
 		"tooltip": false,
 		"format": "⏻",
-		"on-click": "wlogout"
+		"on-click": "wlogout -b 5 -s -T 400 -B 400 -L 400 -R 400 -c 20"
 	},
 
 	"privacy": {
