@@ -8,7 +8,7 @@ set $right l
 
 
 # wf-recorder
-set $screenrecorder `bash $HOME/.config/sway/scripts/toggle-screen-recorder.sh`
+set $screenrecorder `bash $HOME/.config/sway/scripts/open-screen-recorder.sh`
 bindsym --to-code $mod+Shift+R exec $screenrecorder
 
 # background
