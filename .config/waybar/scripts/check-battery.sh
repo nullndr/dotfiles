@@ -4,6 +4,7 @@ bat="/sys/class/power_supply/BAT1"
 crit="${1:-15}"
 stat="$(cat $bat/status)"
 perc="$(cat $bat/capacity)"
+file="$HOME/.config/waybar/scripts/lowbat"
 
 notifysend() {
   local pid
@@ -15,7 +16,12 @@ notifysend() {
 
 main() {
   if [[ "$stat" == "Discharging" ]] && [[ "$perc" -le "$crit" ]] && [[ ! -f "$file" ]]; then
+    touch $file
     notifysend
+  fi
+
+  if [[ "$stat" == "Charging" ]] && [[ -f $file ]]; then 
+    rm $file
   fi
 }
 
