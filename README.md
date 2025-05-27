@@ -14,6 +14,7 @@ List of my dot files and config files for my Arch Linux desktop setup.
 - [Starship](https://github.com/starship/starship): Infinitely customizable prompt for any shell
 - [Swappy](https://github.com/jtheoof/swappy): Wayland native snapshot editing tool 
 - [Sway](https://github.com/swaywm/sway): i3-compatible Wayland compositor
+- [SwayNC](https://github.com/ErikReider/SwayNotificationCenter): A simple GTK based notification daemon for any Wayland compositor 
 - [Waybar](https://github.com/Alexays/Waybar): Wayland bar for Sway
 - [Wofi](https://hg.sr.ht/~scoopta/wofi): Launcher program for wlroots compositors. Deprecated, I use `fuzzel` instead.
 
