@@ -150,8 +150,6 @@
 		"format-bluetooth": "{volume}% {icon}",
 		"format-bluetooth-muted": "{volume}% 󰂲",
 		"format-muted": "{volume}% ",
-		"format-source": "{volume}% ",
-		"format-source-muted": "{volume}% ",
 		"format-icons": {
 			"headphone": "",
 			"hands-free": "󰋎",
@@ -162,14 +160,18 @@
 				""
 			]
 		},
-		"on-click": "pavucontrol",
+		"on-click": "pavucontrol -t 3",
 		"on-click-right": "pamixer -t"
 	},
 	"pulseaudio#microphone": {
 		"tooltip": true,
 		"format": "{format_source}",
 		"format-source": "{volume}% ",
-		"format-source-muted": "{volume}% "
+		"format-source-muted": "{volume}% ",
+		"on-click": "pavucontrol -t 4",
+		"on-click-right": "pamixer --default-source -t",
+		"on-scroll-up": "pamixer --default-source --increase 1",
+		"on-scroll-down": "pamixer --default-source --decrease 1"
 	},
 	"backlight": {
 		"tooltip": true,
