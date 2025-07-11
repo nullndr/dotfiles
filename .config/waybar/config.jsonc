@@ -18,8 +18,7 @@
 		"privacy",
 		"group/system",
 		"group/misc",
-		"group/connections",
-		"custom/power"
+		"group/connections"
 	],
 	"group/system": {
 		"orientation": "inherit",
