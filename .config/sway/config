@@ -214,13 +214,13 @@ bindsym $mod+r mode "Resize"
 
 mode "Resize" {
     # left will shrink the containers width
-    bindsym $left resize shrink width 10px
+    bindsym $mod+$left resize shrink width 10px
     # right will grow the containers width
-    bindsym $right resize grow width 10px
+    bindsym $mod+$right resize grow width 10px
     # up will shrink the containers height
-    bindsym $up resize shrink height 10px
+    bindsym $mod+$up resize shrink height 10px
     # down will grow the containers height
-    bindsym $down resize grow height 10px
+    bindsym $mod+$down resize grow height 10px
 
     # Return to default mode
     bindsym Escape mode "default"
