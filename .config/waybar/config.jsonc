@@ -53,7 +53,8 @@
 		}
 	},
 	"sway/mode": {
-		"format": "{}"
+		"format": "{}",
+		"on-click": "sway mode default"
 	},
 	"hyprland/workspaces": {
 		"format": "{name}  {icon}",
