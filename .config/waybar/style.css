@@ -9,7 +9,10 @@
 tooltip label {
 	background-color: #383c4a;
 	color: white;
-	padding: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
 	border-radius: 10px;
 }
 
