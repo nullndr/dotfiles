@@ -6,17 +6,11 @@
 	font-family: "Symbols Nerd Font", monospace;
 }
 
-#waybar {
-	background-color: transparent;
-}
-
-tooltip {
-	background-color: #383c4a;
-	border-radius: 10px;
-}
-
 tooltip label {
+	background-color: #383c4a;
 	color: white;
+	padding: 4px;
+	border-radius: 10px;
 }
 
 #connections {
