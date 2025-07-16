@@ -5,13 +5,8 @@
 	"layer": "top",
 	"position": "bottom",
 	"margin": "5 5 5 5",
-	"modules-left": [
-		"sway/workspaces",
-		"sway/mode"
-	],
-	"modules-center": [
-		"clock"
-	],
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": ["clock"],
 	"modules-right": [
 		"custom/pacman",
 		"custom/recorder",
@@ -22,26 +17,15 @@
 	],
 	"group/system": {
 		"orientation": "inherit",
-		"modules": [
-			"memory",
-			"disk"
-		]
+		"modules": ["memory", "disk"]
 	},
 	"group/misc": {
 		"orientation": "inherit",
-		"modules": [
-			"pulseaudio",
-			"pulseaudio#microphone",
-			"backlight",
-			"battery"
-		]
+		"modules": ["pulseaudio", "pulseaudio#microphone", "backlight", "battery"]
 	},
 	"group/connections": {
 		"orientation": "inherit",
-		"modules": [
-			"bluetooth",
-			"network"
-		]
+		"modules": ["bluetooth", "network"]
 	},
 	"sway/workspaces": {
 		"format": "{name}  {icon}",
@@ -53,6 +37,7 @@
 		}
 	},
 	"sway/mode": {
+		"tooltip": false,
 		"format": "{}",
 		"on-click": "sway mode default"
 	},
@@ -68,9 +53,7 @@
 	"clock": {
 		"tooltip": true,
 		"tooltip-format": "{calendar}",
-		"timezones": [
-			"Europe/Rome"
-		],
+		"timezones": ["Europe/Rome"],
 		"format": "{:%a %d %H:%M}",
 		"format-alt": "{%H:%M}",
 		"calendar": {
@@ -154,11 +137,7 @@
 			"headphone": "",
 			"hands-free": "󰋎",
 			"headset": "󰋎",
-			"default": [
-				"",
-				"",
-				""
-			]
+			"default": ["", "", ""]
 		},
 		"on-click": "pavucontrol -t 3",
 		"on-click-right": "pamixer -t"
@@ -177,15 +156,7 @@
 		"tooltip": true,
 		"device": "intel_backlight",
 		"format": "{percent}% {icon}",
-		"format-icons": [
-			"󰃚",
-			"󰃛",
-			"󰃜",
-			"󰃝",
-			"󰃞",
-			"󰃟",
-			"󰃠"
-		]
+		"format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
 	},
 	"battery": {
 		"interval": 1,
@@ -199,30 +170,8 @@
 		"format-charging": "{capacity}% {icon}",
 		"format-plugged": "{capacity}% ",
 		"format-icons": {
-			"charging": [
-				"󰢜",
-				"󰂆",
-				"󰂇",
-				"󰂈",
-				"󰢝",
-				"󰂉",
-				"󰢞",
-				"󰂊",
-				"󰂋",
-				"󰂅"
-			],
-			"default": [
-				"󰁺",
-				"󰁻",
-				"󰁼",
-				"󰁽",
-				"󰁾",
-				"󰁿",
-				"󰂀",
-				"󰂁",
-				"󰂂",
-				"󰁹"
-			]
+			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+			"default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
 		},
 		"on-update": "$HOME/.config/waybar/scripts/check-battery.sh"
 	},
@@ -258,13 +207,7 @@
 		"tooltip-format-ethernet": "{ipaddr} ({ifname}) via {essid} 󰈀",
 		"tooltip-format-disconnected": "Disconnected",
 		"format": "{ifname}",
-		"format-icons": [
-			"󰤯",
-			"󰤟",
-			"󰤢",
-			"󰤥",
-			"󰤨"
-		],
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
 		"format-disconnected": "󰖪",
 		"format-wifi": "{icon}",
 		"format-ethernet": "󰈀",
