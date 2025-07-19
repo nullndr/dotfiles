@@ -86,8 +86,9 @@
 		"interval": 60,
 		"tooltip": true,
 		"format": "{} ",
+		"return-type": "json",
 		"exec": "$HOME/.config/waybar/scripts/check-updates.sh",
-		"exec-if": "[[ `$HOME/.config/waybar/scripts/check-updates.sh` != 0 ]]",
+		"exec-if": "[[ `checkupdates | wc -l` != 0 ]]",
 		"signal": 1
 	},
 	"custom/recorder": {
