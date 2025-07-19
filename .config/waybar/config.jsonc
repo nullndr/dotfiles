@@ -5,7 +5,7 @@
 	"layer": "top",
 	"position": "bottom",
 	"margin": "5 5 5 5",
-	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-left": ["sway/workspaces", "sway/mode", "mpris"],
 	"modules-center": ["clock"],
 	"modules-right": [
 		"custom/pacman",
@@ -40,6 +40,11 @@
 		"tooltip": false,
 		"format": "{}",
 		"on-click": "sway mode default"
+	},
+	"mpris": {
+		"interval": 1,
+		"tooltip-format": "{title} - {artist} [{position}/{length}]",
+		"format": "{title}"
 	},
 	"hyprland/workspaces": {
 		"format": "{name}  {icon}",
@@ -94,21 +99,17 @@
 	"custom/recorder": {
 		"interval": 1,
 		"tooltip": true,
-		"format": "Rec 󱣴",
+		"format": "",
 		"return-type": "json",
 		"exec": "echo '{\"class\": \"recording\"}'",
 		"exec-if": "pgrep wf-recorder",
 		"on-click": "$HOME/.config/waybar/scripts/close-screen-recorder.sh"
 	},
-	"custom/power": {
-		"tooltip": false,
-		"format": "⏻",
-		"on-click": "wlogout -b 5 -s -T 400 -B 400 -L 400 -R 400 -c 20"
-	},
 	"privacy": {
 		"icon-spacing": 4,
 		"icon-size": 18,
-		"transition-duration": 250,
+		"transition-duration": 0,
+		"expand": true,
 		"modules": [
 			{
 				"tooltip": true,
@@ -125,6 +126,11 @@
 				"type": "audio-in",
 				"tooltip-icon-size": 24
 			}
+		],
+		"ignore": [
+			{ "type": "audio-out", "name": "spotify" },
+			{ "type": "audio-out", "name": "Firefox" },
+			{ "type": "audio-in", "name": "Firefox" }
 		]
 	},
 	"pulseaudio": {
@@ -157,7 +163,7 @@
 		"tooltip": true,
 		"device": "intel_backlight",
 		"format": "{percent}% {icon}",
-		"format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"]
+		"format-icons": ["", "", "", "", "", "󰃟", "󰃝", "󰃠"]
 	},
 	"battery": {
 		"interval": 1,
