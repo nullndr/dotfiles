@@ -1,9 +1,8 @@
 * {
 	all: initial;
-	border: none;
-	border-radius: 0;
 	min-height: 20px;
 	font-family: "Symbols Nerd Font", monospace;
+	background-color: transparent;
 }
 
 tooltip label {
@@ -20,7 +19,7 @@ tooltip label {
 	border-radius: 10px;
 	background-color: #383c4a;
 	color: #ffffff;
-	margin-left: 8px;
+	margin-left: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
 }
@@ -29,7 +28,7 @@ tooltip label {
 	border-radius: 10px;
 	background-color: #383c4a;
 	color: #ffffff;
-	margin-left: 8px;
+	margin-left: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
 }
@@ -38,30 +37,78 @@ tooltip label {
 	border-radius: 10px;
 	background-color: #383c4a;
 	color: #ffffff;
-	margin-left: 8px;
+	margin-left: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
 }
 
 #custom-pacman,
-#custom-recorder,
 #mode,
 #clock,
 #workspaces,
 #custom-recorder,
 #custom-power,
+#mpris,
+#mpris.paused,
 #privacy {
 	border-radius: 10px;
 	background-color: #383c4a;
 	color: #ffffff;
 }
 
+#custom-recorder, #custom-pacman {
+	background-color: #32e47c;
+	color: #383c4a;
+}
+
+#privacy {
+	background-color: #e63946;
+}
+
+#mode {
+	background-color: #8ecae6;
+	color: #000000;
+}
+
+#mpris:not(.paused) {
+  background: linear-gradient(90deg,
+    #e66465,
+    #f6b73c,
+    #6dd5ed,
+    #c084f1,
+    #ff9a9e,
+    #a1ffce,
+    #fbc2eb,
+    #fad0c4,
+    #8fd3f4,
+    #84fab0,
+    #dcb0ed,
+    #f5576c
+  );
+  background-size: 1000% 1000%;
+  animation: gradientShift 30s ease-in-out infinite;
+  color: #000;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  12.5% { background-position: 20% 50%; }
+  25% { background-position: 45% 50%; }
+  37.5% { background-position: 70% 50%; }
+  50% { background-position: 100% 50%; }
+  62.5% { background-position: 70% 50%; }
+  75% { background-position: 45% 50%; }
+  87.5% { background-position: 20% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 #custom-pacman,
 #custom-recorder,
 #mode,
+#mpris,
 #custom-power,
 #privacy {
-	margin-left: 8px;
+	margin-left: 4px;
 }
 
 #custom-pacman,
@@ -69,6 +116,7 @@ tooltip label {
 #mode,
 #clock,
 #privacy,
+#mpris,
 #custom-power,
 #workspaces button {
 	padding-top: 4px;
