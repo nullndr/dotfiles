@@ -135,7 +135,7 @@
 	},
 	"pulseaudio": {
 		"tooltip": true,
-		"tooltip-format": "Playing at {volume}%",
+		"tooltip-format": "Playing at {volume}% on {desc}",
 		"format": "{volume}% {icon}",
 		"format-bluetooth": "{volume}% {icon}",
 		"format-bluetooth-muted": "{volume}% 󰂲",
@@ -148,6 +148,7 @@
 	},
 	"pulseaudio#microphone": {
 		"tooltip": true,
+		"tooltip-format": "{format_source}",
 		"format": "{format_source}",
 		"format-source": "{volume}% ",
 		"format-source-muted": "{volume}% ",
