@@ -17,7 +17,7 @@
 	],
 	"group/system": {
 		"orientation": "inherit",
-		"modules": ["memory", "disk"]
+		"modules": ["memory", "disk", "cpu"]
 	},
 	"group/misc": {
 		"orientation": "inherit",
@@ -189,6 +189,10 @@
 		"format": "{used} ",
 		"unit": "GiB",
 		"path": "/"
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "{}% "
 	},
 	"memory": {
 		"interval": 3,
