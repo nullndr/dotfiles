@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 increment() {
-  brightnessctl set 5%+
+  brightnessctl set 1%+
 }
 
 decrement() {
@@ -14,7 +14,7 @@ decrement() {
   if [[ "$current_value" == "6000" ]]; then
     brightnessctl set 4
   else 
-    brightnessctl set 5%-
+    brightnessctl set 1%-
   fi
 }
 
