@@ -130,7 +130,9 @@
 		"ignore": [
 			{ "type": "audio-out", "name": "spotify" },
 			{ "type": "audio-out", "name": "Firefox" },
-			{ "type": "audio-in", "name": "Firefox" }
+			{ "type": "audio-in", "name": "Firefox" },
+			{ "type": "audio-out", "name": "Telegram" },
+			{ "type": "audio-in", "name": "Telegram" }
 		]
 	},
 	"pulseaudio": {
