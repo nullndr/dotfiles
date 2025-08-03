@@ -1,6 +1,6 @@
 # ~/.zshrc file for zsh interactive shells.
 
-eval "$(starship init zsh)"
+eval "$(rbenv init - zsh)"
 
 # set -o vi
 
@@ -33,8 +33,8 @@ bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
 
 # enable completion features
-autoload -Uz compinit
-compinit -d ~/.cache/zcompdump
+# autoload -Uz compinit
+# compinit -d ~/.cache/zcompdump
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -51,8 +51,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -91,46 +91,29 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
-# enable auto-suggestions based on the history
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
-fi
-
-# enable command-not-found if installed
-if [ -f /etc/zsh_command_not_found ]; then
-    . /etc/zsh_command_not_found
-fi
-
 # Alias definitions.
-if [ -f ~/.zsh_aliases ]; then
-    . ~/.zsh_aliases
-fi
+[ -f ~/.aliases ] && . ~/.aliases
 
-if [ -f ~/.zsh_exports ]; then
-    . ~/.zsh_exports
-fi
+[ -f ~/.exports ] && . ~/.exports
 
-if [ -f ~/.zsh_include ]; then
-    . ~/.zsh_include
-fi
+[ -f ~/.include ] && . ~/.include
 
-if [ -f ~/.zsh_profile ]; then
-    . ~/.zsh_profile    
-fi
-
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/andrea/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+[ -f ~/.profile ] && . ~/.profile
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # plugins
-plugins=(vi-mode)
+# plugins=(vi-mode)
 
-eval "$(rbenv init - zsh)"
+# Bun and bun completitions
+[ -s "$HOME/.bun/_bun" ] && . "$HOME/.bun/_bun"
+
+# Fnm
+FNM_PATH="/home/andrea/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/andrea/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+eval "$(starship init zsh)"

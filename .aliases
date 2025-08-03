@@ -1,0 +1,7 @@
+alias ll="ls -l"
+alias la="ls -A"
+alias l="ls -CF"
+alias vsc="vscodium ."
+alias r="./bin/rails"
+alias todo="todo.sh"
+alias cat="bat"
