@@ -192,7 +192,8 @@
 	},
 	"cpu": {
 		"interval": 1,
-		"format": "{}% "
+		"format": "{}% ",
+		"on-click": "alacritty -e btop"
 	},
 	"memory": {
 		"interval": 3,
