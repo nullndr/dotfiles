@@ -34,7 +34,8 @@
 			"urgent": "",
 			"focused": "",
 			"default": ""
-		}
+		},
+		"on-click": ":"
 	},
 	"sway/mode": {
 		"tooltip": false,
