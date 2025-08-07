@@ -104,7 +104,7 @@
 		"return-type": "json",
 		"exec": "echo '{\"class\": \"recording\"}'",
 		"exec-if": "pgrep wf-recorder",
-		"on-click": "$HOME/.config/waybar/scripts/close-screen-recorder.sh"
+		"on-click": "$HOME/.config/sway/scripts/screen-recorder.sh"
 	},
 	"privacy": {
 		"icon-spacing": 4,
