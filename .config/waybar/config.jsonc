@@ -215,9 +215,9 @@
 	"network": {
 		"interval": 3,
 		"tooltip": true,
-		"tooltip-format": "{ifname} via {gwaddr} 󰈀",
-		"tooltip-format-wifi": "{ipaddr} ({ifname}) via {essid} ",
-		"tooltip-format-ethernet": "{ipaddr} ({ifname}) via {essid} 󰈀",
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"tooltip-format-wifi": "{ipaddr} ({ifname}) via {essid}\n\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+		"tooltip-format-ethernet": "{ipaddr} ({ifname}) via {essid}\n\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
 		"tooltip-format-disconnected": "Disconnected",
 		"format": "{ifname}",
 		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
