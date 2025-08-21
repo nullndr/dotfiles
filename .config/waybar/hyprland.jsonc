@@ -5,7 +5,7 @@
 	"layer": "top",
 	"position": "bottom",
 	"margin": "5 5 5 5",
-	"modules-left": ["sway/workspaces", "sway/mode", "mpris"],
+	"modules-left": ["hyprland/workspaces", "mpris"],
 	"modules-center": ["clock"],
 	"modules-right": [
 		"custom/pacman",
@@ -27,25 +27,19 @@
 		"orientation": "inherit",
 		"modules": ["bluetooth", "network"]
 	},
-	"sway/workspaces": {
-		"format": "{name}  {icon}",
-		"disable-scroll": true,
-		"format-icons": {
-			"urgent": "",
-			"focused": "",
-			"default": ""
-		},
-		"on-click": ":"
-	},
-	"sway/mode": {
-		"tooltip": false,
-		"format": "{}",
-		"on-click": "sway mode default"
-	},
 	"mpris": {
 		"interval": 1,
 		"tooltip-format": "{title} - {artist} [{position}/{length}]",
 		"format": "{title}"
+	},
+	"hyprland/workspaces": {
+		"format": "{name}  {icon}",
+		"disable-scroll": true,
+		"format-icons": {
+			"urgent": "",
+			"active": "",
+			"default": ""
+		}
 	},
 	"clock": {
 		"tooltip": true,
