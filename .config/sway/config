@@ -250,3 +250,4 @@ bar swaybar_command waybar
 
 include /etc/sway/config.d/*
 include ./config.d/*
+include ./outpus
