@@ -1,5 +1,9 @@
 #! /usr/bin/env bash
 
+toggle_screenrecording() {
+  pkill -RTMIN+8 waybar
+}
+
 main() {
   pid="$(pgrep "wf-recorder" || pgrep "slurp")"
   status=$?
@@ -17,10 +21,14 @@ main() {
     fi
 
     filename="$output_dir/$(date +'recording_%Y-%m-%d-%H%M%S.mp4')"
+    region="$(slurp)"
 
-    region="$(slurp)" &&  wf-recorder -g "$region" -f "$filename"
+    wf-recorder -g "$region" -f "$filename" &
+    
+    toggle_screenrecording
   else 
     pkill --signal SIGINT wf-recorder
+    toggle_screenrecording
   fi
 }
 

@@ -46,7 +46,6 @@ tooltip label {
 #mode,
 #clock,
 #workspaces,
-#custom-recorder,
 #custom-power,
 #mpris,
 #mpris.paused,
@@ -56,7 +55,7 @@ tooltip label {
 	color: #ffffff;
 }
 
-#custom-recorder, #custom-pacman {
+#custom-pacman {
 	background-color: #32e47c;
 	color: #383c4a;
 }
@@ -103,7 +102,6 @@ tooltip label {
 }
 
 #custom-pacman,
-#custom-recorder,
 #mode,
 #mpris,
 #custom-power,
@@ -112,7 +110,6 @@ tooltip label {
 }
 
 #custom-pacman,
-#custom-recorder,
 #mode,
 #clock,
 #privacy,
@@ -163,4 +160,14 @@ tooltip label {
 
 #idle_inhibitor.activated {
 	background-color: #26a65b;
+}
+
+#custom-recorder {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+}
+
+#custom-recorder.active {
+  color: #e63946;
 }

@@ -9,7 +9,6 @@
 	"modules-center": ["clock"],
 	"modules-right": [
 		"custom/pacman",
-		"custom/recorder",
 		"privacy",
 		"group/system",
 		"group/misc",
@@ -21,7 +20,13 @@
 	},
 	"group/misc": {
 		"orientation": "inherit",
-		"modules": ["pulseaudio", "pulseaudio#microphone", "backlight", "battery"]
+		"modules": [
+			"pulseaudio",
+			"pulseaudio#microphone",
+			"backlight",
+			"battery",
+			"custom/recorder"
+		]
 	},
 	"group/connections": {
 		"orientation": "inherit",
@@ -89,13 +94,10 @@
 		"signal": 1
 	},
 	"custom/recorder": {
-		"interval": 1,
-		"tooltip": true,
-		"format": "",
 		"return-type": "json",
-		"exec": "echo '{\"class\": \"recording\"}'",
-		"exec-if": "pgrep wf-recorder",
-		"on-click": "$HOME/.config/sway/scripts/screen-recorder.sh"
+		"exec": "$HOME/.config/waybar/scripts/check-screen-recorder.sh",
+		"on-click": "$HOME/.config/sway/scripts/screen-recorder.sh",
+		"signal": 8
 	},
 	"privacy": {
 		"icon-spacing": 4,
