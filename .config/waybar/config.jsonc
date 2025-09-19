@@ -8,7 +8,6 @@
 	"modules-left": ["sway/workspaces", "sway/mode", "mpris"],
 	"modules-center": ["clock"],
 	"modules-right": [
-		"custom/pacman",
 		"privacy",
 		"group/system",
 		"group/misc",
@@ -16,7 +15,7 @@
 	],
 	"group/system": {
 		"orientation": "inherit",
-		"modules": ["memory", "disk", "cpu"]
+		"modules": ["custom/pacman", "memory", "disk", "cpu"]
 	},
 	"group/misc": {
 		"orientation": "inherit",

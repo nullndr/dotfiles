@@ -15,7 +15,7 @@ tooltip label {
 	border-radius: 10px;
 }
 
-#connections {
+#connections, #misc, #system {
 	border-radius: 10px;
 	background-color: #383c4a;
 	color: #ffffff;
@@ -24,25 +24,6 @@ tooltip label {
 	padding-right: 8px;
 }
 
-#misc {
-	border-radius: 10px;
-	background-color: #383c4a;
-	color: #ffffff;
-	margin-left: 4px;
-	padding-left: 8px;
-	padding-right: 8px;
-}
-
-#system {
-	border-radius: 10px;
-	background-color: #383c4a;
-	color: #ffffff;
-	margin-left: 4px;
-	padding-left: 8px;
-	padding-right: 8px;
-}
-
-#custom-pacman,
 #mode,
 #clock,
 #workspaces,
@@ -53,11 +34,6 @@ tooltip label {
 	border-radius: 10px;
 	background-color: #383c4a;
 	color: #ffffff;
-}
-
-#custom-pacman {
-	background-color: #32e47c;
-	color: #383c4a;
 }
 
 #privacy {
@@ -101,7 +77,6 @@ tooltip label {
   100% { background-position: 0% 50%; }
 }
 
-#custom-pacman,
 #mode,
 #mpris,
 #custom-power,
@@ -109,15 +84,12 @@ tooltip label {
 	margin-left: 4px;
 }
 
-#custom-pacman,
 #mode,
 #clock,
 #privacy,
 #mpris,
 #custom-power,
 #workspaces button {
-	padding-top: 4px;
-	padding-bottom: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
 }
@@ -127,6 +99,7 @@ tooltip label {
 #memory,
 #disk,
 #backlight,
+#battery,
 #bluetooth {
 	padding-right: 8px;
 }
@@ -170,4 +143,11 @@ tooltip label {
 
 #custom-recorder.active {
   color: #e63946;
+}
+
+#custom-pacman {
+	color: #32e47c;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-right: 8px;
 }
