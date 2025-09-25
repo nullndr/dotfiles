@@ -107,14 +107,6 @@
 				{
 					"label": "󰂯",
 					"command": "blueman-manager"
-				},
-				{
-					"label": "󰹑",
-					"command": "grimshot save area - | swappy -f -"
-				},
-				{
-					"label": "",
-					"command": "./home/andrea/.config/sway/scripts/toggle-screen-recorder.sh"
 				}
 			]
 		},
