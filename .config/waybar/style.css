@@ -149,3 +149,14 @@ tooltip label {
 	color: #32e47c;
 	padding-right: 8px;
 }
+
+menu {
+	border-radius: 15px;
+	background-color: #383c4a;
+	color: #ffffff;
+}
+
+menuitem {
+	padding: 8px;
+	border-radius: 15px;
+}
