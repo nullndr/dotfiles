@@ -20,6 +20,8 @@ List of my dot files and config files for my Arch Linux desktop setup.
 
 ## Screen
 
+![ly](./images/ly.png)
+
 ![screen](./images/screen.png)
 
 ## Waybar config
