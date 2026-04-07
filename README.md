@@ -11,6 +11,7 @@ List of my dot files and config files for my Arch Linux desktop setup.
 - [Ly](https://github.com/fairyglade/ly): Lightweight TUI (ncurses-like) display manager 
 - [Mako](https://github.com/emersion/mako): Wayland notification daemon
 - [MPV](https://mpv.io/): MPV is a media player based on MPlayer 
+- [Reflector](https://wiki.archlinux.org/title/Reflector): script to weekly update the `/etc/pacman.d/mirrorlist` file
 - [Starship](https://github.com/starship/starship): Infinitely customizable prompt for any shell
 - [Swappy](https://github.com/jtheoof/swappy): Wayland native snapshot editing tool 
 - [Sway](https://github.com/swaywm/sway): i3-compatible Wayland compositor
