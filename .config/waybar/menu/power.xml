@@ -7,8 +7,8 @@
       </object>
     </child>
     <child>
-      <object class="GtkMenuItem" id="hibernate">
-        <property name="label">Hibernate</property>
+      <object class="GtkMenuItem" id="logout">
+        <property name="label">Logout</property>
       </object>
     </child>
     <child>

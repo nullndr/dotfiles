@@ -21,7 +21,7 @@
 		"menu-file": "~/.config/waybar/menu/power.xml",
 		"menu-actions": {
 			"shutdown": "shutdown",
-			"reboot": "reboot",
+			"logout": "loginctl terminate-user $USER",
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
