@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Clam Scan
+Comment=Execute a virus scan with clam scan
+Exec=alacritty -e sh -c "clamscan -r %F --log=$HOME/clamscan.log"
+Icon-Name=bug-buddy
+Selection=Any
+Extensions=dir;exe;dll;zip;gz;7z;rar;
