@@ -6,7 +6,6 @@ set $down j
 set $up k
 set $right l
 
-
 # wf-recorder
 set $screenrecorder `bash $HOME/.config/sway/scripts/screen-recorder.sh`
 bindsym --to-code $mod+Shift+R exec $screenrecorder
@@ -35,22 +34,22 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Use swaync as notification daemon
-exec swaync
+# exec swaync
 
 # Toggle swaync control center
-bindsym $mod+Shift+n exec swaync-client -t -sw
+# bindsym $mod+Shift+n exec swaync-client -t -sw
 
 gaps inner 2
 gaps outer 2
 
 font JetBrains 10
 
-default_border none
+default_border pixel 2
 
-client.focused #434c5e #434c5e #eceff4
-client.focused_inactive #3b4252 #3b4252 #eceff4
-client.unfocused #3b4252 #3b4252 #eceff4
-client.urgent #434c5e #434c5e #eceff4
+# client.focused #434c5e #434c5e #eceff4
+# client.focused_inactive #3b4252 #3b4252 #eceff4
+# client.unfocused #3b4252 #3b4252 #eceff4
+# client.urgent #434c5e #434c5e #eceff4
 
 seat seat0 xcursor_theme BreezeX-Dark
 
@@ -207,7 +206,7 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $mod+equal scratchpad show
 
 # Resizing containers
 bindsym $mod+r mode "Resize"
@@ -250,4 +249,5 @@ bar swaybar_command waybar
 
 include /etc/sway/config.d/*
 include ./config.d/*
-include ./outpus
+
+exec_always /home/andrea/.config/sway/scripts/run-polkit.sh 
