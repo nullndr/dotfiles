@@ -15,7 +15,12 @@ tooltip label {
 	border-radius: 10px;
 }
 
-#connections, #misc, #system, #custom-pacman {
+#scratchpad,
+#connections,
+#keyboard-state,
+#misc,
+#system,
+#custom-pacman {
 	border-radius: 10px;
 	background-color: #383c4a;
 	color: #ffffff;

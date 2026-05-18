@@ -5,7 +5,7 @@
 	"layer": "top",
 	"position": "bottom",
 	"margin": "5 5 5 5",
-	"modules-left": ["sway/workspaces", "sway/mode", "mpris"],
+	"modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "mpris"],
 	"modules-center": ["clock"],
 	"modules-right": [
 		"privacy",
@@ -14,6 +14,31 @@
 		"group/misc",
 		"group/connections"
 	],
+	"sway/workspaces": {
+		"format": "{name} {icon}",
+		"disable-scroll": false,
+		"disable-click": false,
+		"smooth-scrolling-threshold": 2,
+		"disable-scroll-wraparound": true,
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		},
+		"on-click": ":"
+	},
+	"sway/mode": {
+		"tooltip": false,
+		"format": "{}",
+		"on-click": "sway mode default"
+	},
+	"sway/scratchpad": {
+		"format": "{icon} {count}",
+		"show-empty": false,
+		"format-icons": ["", ""],
+		"tooltip": true,
+		"tooltip-format": "{app}: {title}"
+	},
 	"custom/power": {
 		"format": "⏻",
 		"tooltip": false,
@@ -47,21 +72,6 @@
 	"group/connections": {
 		"orientation": "inherit",
 		"modules": ["bluetooth", "network"]
-	},
-	"sway/workspaces": {
-		"format": "{name}  {icon}",
-		"disable-scroll": true,
-		"format-icons": {
-			"urgent": "",
-			"focused": "",
-			"default": ""
-		},
-		"on-click": ":"
-	},
-	"sway/mode": {
-		"tooltip": false,
-		"format": "{}",
-		"on-click": "sway mode default"
 	},
 	"mpris": {
 		"interval": 1,
@@ -187,6 +197,7 @@
 			"critical": 15
 		},
 		"format": "{capacity}% {icon}",
+		"format-time": "{H}h {m}m",
 		"format-charging": "{capacity}% {icon}",
 		"format-plugged": "{capacity}% ",
 		"format-icons": {
@@ -200,8 +211,9 @@
 		"tooltip": true,
 		"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
 		"format": "{used} ",
-		"unit": "GiB",
-		"path": "/"
+		"unit": "GB",
+		"path": "/",
+		"on-click": "nemo"
 	},
 	"cpu": {
 		"interval": 1,
