@@ -1,5 +1,5 @@
 {
-	"name": "main",
+	"name": "sway",
 	"mode": "dock",
 	"reload_style_on_change": true,
 	"layer": "top",
@@ -7,9 +7,11 @@
 	"margin": "5 5 5 5",
 	"modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "mpris"],
 	"modules-center": ["clock"],
+	"spacing": 8,
 	"modules-right": [
 		"privacy",
 		"custom/pacman",
+		"group/utils",
 		"group/system",
 		"group/misc",
 		"group/connections"
@@ -25,7 +27,9 @@
 			"focused": "",
 			"default": ""
 		},
-		"on-click": ":"
+		"actions": {
+			"on-click": ":"
+		}
 	},
 	"sway/mode": {
 		"tooltip": false,
@@ -35,7 +39,7 @@
 	"sway/scratchpad": {
 		"format": "{icon} {count}",
 		"show-empty": false,
-		"format-icons": ["", ""],
+		"format-icons": ["", "", ""],
 		"tooltip": true,
 		"tooltip-format": "{app}: {title}"
 	},
@@ -61,13 +65,15 @@
 	},
 	"group/misc": {
 		"orientation": "inherit",
-		"modules": [
-			"pulseaudio",
-			"pulseaudio#microphone",
-			"backlight",
-			"battery",
-			"custom/recorder"
-		]
+		"modules": ["battery", "pulseaudio", "pulseaudio#microphone", "backlight"],
+		"drawer": {
+			"start-expanded": false,
+			"transition-left-to-right": false
+		}
+	},
+	"group/utils": {
+		"orientation": "inherit",
+		"modules": ["custom/airplay", "custom/recorder"]
 	},
 	"group/connections": {
 		"orientation": "inherit",
@@ -99,9 +105,7 @@
 				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
 			}
 		},
-		"actions": {
-			"on-click-right": "mode"
-		}
+		"on-click-right": "mode"
 	},
 	"idle_inhibitor": {
 		"tooltip": true,
@@ -120,11 +124,17 @@
 		"exec-if": "[[ `checkupdates | wc -l` != 0 ]]",
 		"signal": 1
 	},
+	"custom/airplay": {
+		"tooltip": true,
+		"return-type": "json",
+		"exec": "$HOME/.config/waybar/scripts/check-uxplay.sh",
+		"signal": 9
+	},
 	"custom/recorder": {
 		"return-type": "json",
 		"exec": "$HOME/.config/waybar/scripts/check-screen-recorder.sh",
-		"on-click": "$HOME/.config/sway/scripts/screen-recorder.sh",
-		"signal": 8
+		"signal": 8,
+		"on-click": "$HOME/.config/sway/scripts/screen-recorder.sh"
 	},
 	"privacy": {
 		"icon-spacing": 4,
@@ -162,8 +172,6 @@
 		"tooltip": true,
 		"tooltip-format": "Playing at {volume}% on {desc}",
 		"format": "{volume}% {icon}",
-		"format-bluetooth": "{volume}% {icon}",
-		"format-bluetooth-muted": "{volume}% 󰂲",
 		"format-muted": "{volume}% ",
 		"format-icons": {
 			"default": ["", "", ""]
@@ -228,19 +236,21 @@
 	},
 	"bluetooth": {
 		"tooltip": true,
-		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-		"tooltip-format-disabled": "Disabled",
+		"tooltip-format": "󰂯 {controller_alias}: {controller_address}",
+		"tooltip-format-connected": "󰂯 {controller_alias}: {controller_address}\n\nCurrently connected: {num_connections} devices\n\n{device_enumerate}",
+		"tooltip-format-disabled": "󰂲 {controller_alias}: {controller_address}",
+		"tooltip-format-enumerate-connected": "{device_alias}: {device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%): {device_address}",
 		"format": "󰂯",
 		"format-disabled": "󰂲",
-		"format-connected": "{device_alias} 󰂯",
-		"format-connected-battery": "{device_alias} 󰂯 {device_battery_percentage}%",
+		"format-connected": "󰂯",
 		"on-click": "blueman-manager"
 	},
 	"network": {
 		"interval": 3,
 		"tooltip": true,
 		"tooltip-format": "{ifname} via {gwaddr}",
-		"tooltip-format-wifi": "{ipaddr} ({ifname}) via {essid}\n\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+		"tooltip-format-wifi": "{essid}: {ipaddr}\n\n{signaldBm}dBm ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
 		"tooltip-format-ethernet": "{ipaddr} ({ifname}) via {essid}\n\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
 		"tooltip-format-disconnected": "Disconnected",
 		"format": "{ifname}",

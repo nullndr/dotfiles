@@ -10,6 +10,10 @@ set $right l
 set $screenrecorder `bash $HOME/.config/sway/scripts/screen-recorder.sh`
 bindsym --to-code $mod+Shift+R exec $screenrecorder
 
+# uxplay
+set $uxplay `bash $HOME/.config/sway/scripts/run-uxplay.sh`
+bindsym --to-code $mod+Shift+U exec $uxplay
+
 # background
 set $background "/usr/share/backgrounds/sway/arch.png"
 
