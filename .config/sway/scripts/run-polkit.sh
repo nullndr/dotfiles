@@ -5,4 +5,4 @@ main() {
   nohup lxqt-policykit-agent > /dev/null 2>&1 &
 }
 
-main $@
+main "$@"

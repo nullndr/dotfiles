@@ -12,4 +12,4 @@ main() {
   echo $data | jq --unbuffered --compact-output
 }
 
-main $@
+main "$@"
