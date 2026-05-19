@@ -19,12 +19,25 @@ List of my dot files and config files for my Arch Linux desktop setup.
 - [Waybar](https://github.com/Alexays/Waybar): Wayland bar for Sway
 - [Wofi](https://hg.sr.ht/~scoopta/wofi): Launcher program for wlroots compositors. Deprecated, I use `fuzzel` instead.
 
-## Screen
+## Ly
 
 ![ly](./images/ly.png)
 
-![screen](./images/screen.png)
+## Background
+
+![background](./images/bg.jpg)
 
 ## Waybar config
 
-![waybar](./images/image.png)
+![waybar](./images/waybar.png)
+
+![waybar](./images/with_uxplay.png)
+
+![waybar](./images/expanded_one.png)
+
+![waybar](./images/expanded_two.png)
+
+![waybar](./images/sway_mode.png)
+
+![waybar](./images/recording.png)
+
