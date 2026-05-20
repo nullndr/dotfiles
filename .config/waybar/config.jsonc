@@ -1,264 +1,30 @@
-{
-	"name": "sway",
+﻿{
+	"name": "main",
 	"mode": "dock",
 	"reload_style_on_change": true,
 	"layer": "top",
 	"position": "bottom",
 	"margin": "5 5 5 5",
+	"include": [
+		"./modules/sway.jsonc",
+		"./modules/misc.jsonc",
+		"./modules/groups/system.jsonc",
+		"./modules/groups/misc.jsonc",
+		"./modules/groups/connections.jsonc",
+		"./modules/groups/utils.jsonc",
+		"./modules/custom/pacman.jsonc",
+		"./modules/custom/power.jsonc",
+		"./modules/custom/recorder.jsonc",
+		"./modules/custom/uxplay.jsonc"
+	],
 	"modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "mpris"],
 	"modules-center": ["clock"],
 	"spacing": 8,
 	"modules-right": [
-		"privacy",
 		"custom/pacman",
 		"group/utils",
 		"group/system",
 		"group/misc",
 		"group/connections"
-	],
-	"sway/workspaces": {
-		"format": "{name} {icon}",
-		"disable-scroll": false,
-		"disable-click": false,
-		"smooth-scrolling-threshold": 2,
-		"disable-scroll-wraparound": true,
-		"format-icons": {
-			"urgent": "",
-			"focused": "",
-			"default": ""
-		},
-		"actions": {
-			"on-click": ":"
-		}
-	},
-	"sway/mode": {
-		"tooltip": false,
-		"format": "{}",
-		"on-click": "sway mode default"
-	},
-	"sway/scratchpad": {
-		"format": "{icon} {count}",
-		"show-empty": false,
-		"format-icons": ["", "", ""],
-		"tooltip": true,
-		"tooltip-format": "{app}: {title}"
-	},
-	"custom/power": {
-		"format": "⏻",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "~/.config/waybar/menu/power.xml",
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"logout": "loginctl terminate-user $USER",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
-	},
-	"group/system": {
-		"orientation": "inherit",
-		"modules": ["cpu", "memory", "disk"],
-		"drawer": {
-			"start-expanded": false,
-			"transition-left-to-right": false
-		}
-	},
-	"group/misc": {
-		"orientation": "inherit",
-		"modules": ["battery", "pulseaudio", "pulseaudio#microphone", "backlight"],
-		"drawer": {
-			"start-expanded": false,
-			"transition-left-to-right": false
-		}
-	},
-	"group/utils": {
-		"orientation": "inherit",
-		"modules": ["custom/airplay", "custom/recorder"]
-	},
-	"group/connections": {
-		"orientation": "inherit",
-		"modules": ["bluetooth", "network"]
-	},
-	"mpris": {
-		"interval": 1,
-		"tooltip-format": "{title} - {artist} [{position}/{length}]",
-		"format": "{title}",
-		"ignored-players": ["firefox", "TelegramDesktop"]
-	},
-	"clock": {
-		"tooltip": true,
-		"tooltip-format": "{calendar}",
-		"timezones": ["Europe/Rome"],
-		"format": "{:%a %d %H:%M}",
-		"format-alt": "{%H:%M}",
-		"calendar": {
-			"mode": "year",
-			"mode-mon-col": 3,
-			"weeks-pos": "right",
-			"on-scroll": 1,
-			"on-click-right": "mode",
-			"format": {
-				"months": "<span color='#ffead3'><b>{}</b></span>",
-				"days": "<span color='#ecc6d9'><b>{}</b></span>",
-				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-			}
-		},
-		"on-click-right": "mode"
-	},
-	"idle_inhibitor": {
-		"tooltip": true,
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
-	},
-	"custom/pacman": {
-		"interval": 60,
-		"tooltip": true,
-		"format": "{}",
-		"return-type": "json",
-		"exec": "$HOME/.config/waybar/scripts/check-updates.sh",
-		"exec-if": "[[ `checkupdates | wc -l` != 0 ]]",
-		"signal": 1
-	},
-	"custom/airplay": {
-		"tooltip": true,
-		"return-type": "json",
-		"exec": "$HOME/.config/waybar/scripts/check-uxplay.sh",
-		"signal": 9
-	},
-	"custom/recorder": {
-		"return-type": "json",
-		"exec": "$HOME/.config/waybar/scripts/check-screen-recorder.sh",
-		"signal": 8,
-		"on-click": "$HOME/.config/sway/scripts/screen-recorder.sh"
-	},
-	"privacy": {
-		"icon-spacing": 4,
-		"icon-size": 18,
-		"transition-duration": 0,
-		"expand": true,
-		"modules": [
-			{
-				"tooltip": true,
-				"type": "screenshare",
-				"tooltip-icon-size": 24
-			},
-			{
-				"tooltip": true,
-				"type": "audio-out",
-				"tooltip-icon-size": 24
-			},
-			{
-				"tooltip": true,
-				"type": "audio-in",
-				"tooltip-icon-size": 24
-			}
-		],
-		"ignore": [
-			{ "type": "audio-out", "name": "audio-src" },
-			{ "type": "audio-out", "name": "Firefox" },
-			{ "type": "audio-in", "name": "Firefox" },
-			{ "type": "audio-out", "name": "Chromium" },
-			{ "type": "audio-in", "name": "Chromium" },
-			{ "type": "audio-out", "name": "Telegram" },
-			{ "type": "audio-in", "name": "Telegram" }
-		]
-	},
-	"pulseaudio": {
-		"tooltip": true,
-		"tooltip-format": "Playing at {volume}% on {desc}",
-		"format": "{volume}% {icon}",
-		"format-muted": "{volume}% ",
-		"format-icons": {
-			"default": ["", "", ""]
-		},
-		"on-click": "pavucontrol -t 3",
-		"on-click-right": "pamixer -t"
-	},
-	"pulseaudio#microphone": {
-		"tooltip": true,
-		"tooltip-format": "{format_source}",
-		"format": "{format_source}",
-		"format-source": "{volume}% ",
-		"format-source-muted": "{volume}% ",
-		"on-click": "pavucontrol -t 4",
-		"on-click-right": "pamixer --default-source -t",
-		"on-scroll-up": "pamixer --default-source --increase 1",
-		"on-scroll-down": "pamixer --default-source --decrease 1"
-	},
-	"backlight": {
-		"tooltip": true,
-		"device": "intel_backlight",
-		"format": "{percent}% {icon}",
-		"format-icons": ["", "", "", "", "", "󰃟", "󰃝", "󰃠"]
-	},
-	"battery": {
-		"interval": 1,
-		"tooltip": true,
-		"tooltip-format": "{timeTo}\nCapacity: {capacity}%\nPower: {power:0.2f}w\nCycles: {cycles}\nHealth: {health}%",
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{capacity}% {icon}",
-		"format-time": "{H}h {m}m",
-		"format-charging": "{capacity}% {icon}",
-		"format-plugged": "{capacity}% ",
-		"format-icons": {
-			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-			"default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-		},
-		"on-update": "$HOME/.config/waybar/scripts/check-battery.sh"
-	},
-	"disk": {
-		"interval": 3,
-		"tooltip": true,
-		"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
-		"format": "{used} ",
-		"unit": "GB",
-		"path": "/",
-		"on-click": "nemo"
-	},
-	"cpu": {
-		"interval": 1,
-		"format": "{}% ",
-		"on-click": "alacritty -e btop"
-	},
-	"memory": {
-		"interval": 3,
-		"tooltip": true,
-		"tooltip-format": "{used:0.2f}GiB used out of {total}GiB ({percentage}%)",
-		"format": "{used:0.2f}GiB "
-	},
-	"bluetooth": {
-		"tooltip": true,
-		"tooltip-format": "󰂯 {controller_alias}: {controller_address}",
-		"tooltip-format-connected": "󰂯 {controller_alias}: {controller_address}\n\nCurrently connected: {num_connections} devices\n\n{device_enumerate}",
-		"tooltip-format-disabled": "󰂲 {controller_alias}: {controller_address}",
-		"tooltip-format-enumerate-connected": "{device_alias}: {device_address}",
-		"tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage}%): {device_address}",
-		"format": "󰂯",
-		"format-disabled": "󰂲",
-		"format-connected": "󰂯",
-		"on-click": "blueman-manager"
-	},
-	"network": {
-		"interval": 3,
-		"tooltip": true,
-		"tooltip-format": "{ifname} via {gwaddr}",
-		"tooltip-format-wifi": "{essid}: {ipaddr}\n\n{signaldBm}dBm ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
-		"tooltip-format-ethernet": "{ipaddr} ({ifname}) via {essid}\n\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
-		"tooltip-format-disconnected": "Disconnected",
-		"format": "{ifname}",
-		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-		"format-disconnected": "󰖪",
-		"format-wifi": "{icon}",
-		"format-ethernet": "󰈀",
-		"max-length": 50,
-		"on-click": "nm-connection-editor"
-	}
+	]
 }

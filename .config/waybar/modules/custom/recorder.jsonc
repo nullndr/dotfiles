@@ -1,0 +1,8 @@
+{
+	"custom/recorder": {
+		"return-type": "json",
+		"exec": "$HOME/.config/waybar/scripts/check-screen-recorder.sh",
+		"signal": 8,
+		"on-click": "$HOME/.config/sway/scripts/screen-recorder.sh"
+	}
+}

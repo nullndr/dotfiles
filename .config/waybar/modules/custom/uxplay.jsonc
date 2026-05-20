@@ -1,0 +1,8 @@
+{
+	"custom/uxplay": {
+		"tooltip": true,
+		"return-type": "json",
+		"exec": "$HOME/.config/waybar/scripts/check-uxplay.sh",
+		"signal": 9
+	}
+}

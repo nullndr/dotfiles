@@ -1,0 +1,59 @@
+{
+	"group/misc": {
+		"orientation": "inherit",
+		"modules": ["battery", "pulseaudio", "pulseaudio#microphone", "backlight"],
+		"drawer": {
+			"start-expanded": false,
+			"transition-left-to-right": false
+		}
+	},
+	"battery": {
+		"interval": 1,
+		"tooltip": true,
+		"tooltip-format-full": "<span foreground=\"#32e47c\"><b>Full</b></span>",
+		"tooltip-format-discharging": "Empty in <span><b>{time}</b></span>\nPower: {power:0.2f}w\nHealth: {health}%",
+		"tooltip-format-charging": "Full in <span><b>{time}</b></span>\nPower: {power:0.2f}w\nHealth: {health}%",
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{capacity}% {icon}",
+		"format-full": "<span foreground=\"#32e47c\"><b>Full {icon}</b></span>",
+		"format-time": "{H}h {m}m",
+		"format-charging": "{capacity}% {icon}",
+		"format-plugged": "{capacity}% ",
+		"format-icons": {
+			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+			"default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+		},
+		"on-update": "$HOME/.config/waybar/scripts/check-battery.sh"
+	},
+	"pulseaudio": {
+		"tooltip": true,
+		"tooltip-format": "Playing at <span><b>{volume}%</b></span> on <span foreground=\"#8ecae6\"><b>{desc}</b></span>",
+		"format": "{volume}% {icon}",
+		"format-muted": "{volume}% ",
+		"format-icons": {
+			"default": ["", "", ""]
+		},
+		"on-click": "pavucontrol -t 3",
+		"on-click-right": "pamixer -t"
+	},
+	"pulseaudio#microphone": {
+		"tooltip": true,
+		"tooltip-format": "{format_source}",
+		"format": "{format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "{volume}% ",
+		"on-click": "pavucontrol -t 4",
+		"on-click-right": "pamixer --default-source -t",
+		"on-scroll-up": "pamixer --default-source --increase 1",
+		"on-scroll-down": "pamixer --default-source --decrease 1"
+	},
+	"backlight": {
+		"tooltip": true,
+		"device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["", "", "", "", "", "󰃟", "󰃝", "󰃠"]
+	}
+}

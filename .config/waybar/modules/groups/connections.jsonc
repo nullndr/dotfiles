@@ -1,0 +1,33 @@
+{
+	"group/connections": {
+		"orientation": "inherit",
+		"modules": ["bluetooth", "network"]
+	},
+	"bluetooth": {
+		"tooltip": true,
+		"tooltip-format": "󰂯 <span foreground=\"#8ecae6\"><b>{controller_alias}</b></span>: {controller_address}",
+		"tooltip-format-connected": "󰂯 <span foreground=\"#8ecae6\"><b>{controller_alias}</b></span>: {controller_address}\n\nCurrently connected: {num_connections} devices\n\n{device_enumerate}",
+		"tooltip-format-disabled": "󰂲 <span foreground=\"#8ecae6\"><b>{controller_alias}</b></span>: {controller_address}",
+		"tooltip-format-enumerate-connected": "<span foreground=\"#8ecae6\"><b>{device_alias}</b></span>: {device_address}",
+		"tooltip-format-enumerate-connected-battery": "<span foreground=\"#8ecae6\"><b>{device_alias}</b></span> ({device_battery_percentage}%): {device_address}",
+		"format": "󰂯",
+		"format-disabled": "󰂲",
+		"format-connected": "󰂯",
+		"on-click": "blueman-manager"
+	},
+	"network": {
+		"interval": 3,
+		"tooltip": true,
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"tooltip-format-wifi": "<span foreground=\"#8ecae6\"><b>{essid}</b></span>: <span><b>{ipaddr}</b></span>\n\n{signaldBm}dBm ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+		"tooltip-format-ethernet": "{ipaddr} ({ifname}) via {essid}\n\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+		"tooltip-format-disconnected": "Disconnected",
+		"format": "{ifname}",
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+		"format-disconnected": "󰖪",
+		"format-wifi": "{icon}",
+		"format-ethernet": "󰈀",
+		"max-length": 50,
+		"on-click": "nm-connection-editor"
+	}
+}

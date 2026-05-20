@@ -1,0 +1,39 @@
+{
+	"group/system": {
+		"orientation": "inherit",
+		"modules": ["cpu", "temperature", "memory", "disk"],
+		"drawer": {
+			"start-expanded": false,
+			"transition-left-to-right": false
+		}
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "{}% ",
+		"on-click": "alacritty -e btop"
+	},
+	"temperature": {
+		"tooltip": true,
+		"hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon9/temp1_input",
+		"warning-threshold": 60,
+		"critical-threshold": 80,
+		"format": "{temperatureC}°C {icon}",
+		"format-icons": ["", "", "", "", ""],
+		"tooltip-format": "Currently at <span><b>{temperatureC}°C</b></span>"
+	},
+	"memory": {
+		"interval": 3,
+		"tooltip": true,
+		"tooltip-format": "<span><b>{used:0.2f}GiB</b></span> used out of <span foreground=\"#8ecae6\"><b>{total:0.2f}GiB ({percentage}%)</b></span>",
+		"format": "{used:0.2f}GiB "
+	},
+	"disk": {
+		"interval": 3,
+		"tooltip": true,
+		"tooltip-format": "<span><b>{used}</b></span> used out of <span foreground=\"#8ecae6\"><b>{total} ({percentage_used}%)</b></span> on <span foreground=\"#32e47c\"><b>{path}</b></span>",
+		"format": "{used} ",
+		"unit": "GB",
+		"path": "/home/andrea",
+		"on-click": "nemo"
+	}
+}

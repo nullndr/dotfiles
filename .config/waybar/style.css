@@ -98,9 +98,10 @@ tooltip label {
 #pulseaudio:not(.microphone),
 #pulseaudio.microphone,
 #memory,
+#temperature,
 #disk,
 #backlight,
-#custom-airplay,
+#custom-uxplay,
 #bluetooth {
 	padding-right: 8px;
 }
@@ -136,6 +137,10 @@ tooltip label {
 	background-color: #26a65b;
 }
 
+#custom-recorder.saving {
+  color: #32e47c;
+}
+
 #custom-recorder.active {
   color: #e63946;
 }
@@ -143,6 +148,14 @@ tooltip label {
 #custom-pacman {
 	color: #32e47c;
 	padding-right: 8px;
+}
+
+#temperature.warning {
+	color: #ffbe61;
+}
+
+#temperature.critical {
+  color: #e63946;
 }
 
 menu {
