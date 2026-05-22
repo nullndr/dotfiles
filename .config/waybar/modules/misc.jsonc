@@ -1,4 +1,8 @@
 {
+	"tray": {
+		"icon-size": 18,
+		"spacing": 10
+	},
 	"mpris": {
 		"interval": 1,
 		"tooltip-format": "{title} - {artist} [{position}/{length}]",
