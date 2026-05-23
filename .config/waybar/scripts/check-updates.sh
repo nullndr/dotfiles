@@ -15,7 +15,8 @@ main() {
     if [[ $? -eq 0 && -n "$updates" ]]; then
       local numberOfUpdates=$(echo "$updates" | wc -l)
 
-      local tooltip=$(
+      text="<span><b>$numberOfUpdates</b></span> "
+      tooltip=$(
         echo "$updates" | awk '
         {
           printf "<span foreground=\"#8ecae6\"><b>%s</b></span> ", $1
@@ -23,9 +24,6 @@ main() {
           printf "<span foreground=\"#32e47c\">%s</span>\n", $4
         }'
       )
-
-      text="<span><b>$numberOfUpdates</b></span> "
-      tooltip=$(printf "%s" "$tooltip" | jq -sR .)
     fi
   fi
 
