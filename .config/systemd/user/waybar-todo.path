@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch todo.txt for changes
+
+[Path]
+PathModified=%h/.todo/todo.txt
+Unit=waybar-todo.service
+
+[Install]
+WantedBy=default.target

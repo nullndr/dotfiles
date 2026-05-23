@@ -1,0 +1,6 @@
+[Unit]
+Description=Refresh Waybar todo module
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/pkill -RTMIN+12 waybar
