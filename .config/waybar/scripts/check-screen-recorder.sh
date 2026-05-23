@@ -1,19 +1,26 @@
 #! /usr/bin/env bash
 
 main() {
-  local data=""
+  local text
+  local tooltip
+  local class
 
   if [[ -f /tmp/closing_wfrecorder ]]; then
-    data='{"text": "󰻂", "tooltip": "Saving recording", "class": "saving"}'
-    echo $data | jq --unbuffered --compact-output
+    text="󰻂"
+    tooltip="Saving recording"
+    class="saving"
+    jq --unbuffered -cn --arg "text" "$text" --arg "tooltip" "$tooltip" --arg "class" "$class" '{text:$text, tooltip:$tooltip, class:$class}'
     pkill -RTMIN+8 waybar
   else
+    text="󰻂"
     if pgrep -x wf-recorder > /dev/null 2>&1; then
-      data='{"text": "󰻂", "tooltip": "Stop recording", "class": "active"}'
+      tooltip="Stop recording"
+      class="active"
     else
-      data='{"text": "󰻂", "tooltip": "Start recording", "class": "idle"}'
+      tooltip="Start recording"
+      class="idle"
     fi
-    echo $data | jq --unbuffered --compact-output
+    jq --unbuffered -cn --arg "text" "$text" --arg "tooltip" "$tooltip" --arg "class" "$class" '{text:$text, tooltip:$tooltip, class:$class}'
   fi
 }
 

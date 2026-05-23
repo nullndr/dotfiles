@@ -6,6 +6,8 @@ has_network() {
 
 main() {
   local data='{"text":"","tooltip":""}'
+  local text
+  local tooltip
 
   if has_network > /dev/null; then
     local updates=$(checkupdates 2> /dev/null)
@@ -22,12 +24,12 @@ main() {
         }'
       )
 
+      text="<span><b>$numberOfUpdates</b></span> "
       tooltip=$(printf "%s" "$tooltip" | jq -sR .)
-      data="{\"text\":\"$numberOfUpdates \",\"tooltip\":$tooltip}"
     fi
   fi
 
-  echo "$data" | jq --unbuffered --compact-output
+  jq --unbuffered -cn --arg "text" "$text" --arg "tooltip" "$tooltip" '{text:$text, tooltip:$tooltip}'
 }
 
 main "$@"
