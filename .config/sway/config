@@ -15,7 +15,7 @@ set $uxplay `bash $HOME/.config/sway/scripts/run-uxplay.sh`
 bindsym --to-code $mod+Shift+U exec $uxplay
 
 # background
-set $background "/usr/share/backgrounds/sway/arch.png"
+set $background "$HOME/.local/share/backgrounds/wood.jpg"
 
 # lock screen
 bindsym Mod4+l exec swaylock -l -f -e -F -i "$background" -s stretch
@@ -29,7 +29,6 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-# set $menu wofi --show drun -I | swaymsg
 set $menu fuzzel | swaymsg
 
 # Wob configuration
@@ -37,23 +36,20 @@ set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-# Use swaync as notification daemon
-# exec swaync
-
-# Toggle swaync control center
-# bindsym $mod+Shift+n exec swaync-client -t -sw
-
 gaps inner 2
 gaps outer 2
+
+focus_follows_mouse yes
 
 font JetBrains 10
 
 default_border pixel 2
+default_floating_border pixel 2
 
-# client.focused #434c5e #434c5e #eceff4
-# client.focused_inactive #3b4252 #3b4252 #eceff4
-# client.unfocused #3b4252 #3b4252 #eceff4
-# client.urgent #434c5e #434c5e #eceff4
+client.focused #7aa2f7ff #7aa2f7ff #000000 #2e9ef4 #7aa2f7ff
+client.focused_inactive #333333 #222222 #ffffff
+client.unfocused #333333 #222222 #ffffff
+client.urgent #fc0c00 #fc0c00 #000000
 
 seat seat0 xcursor_theme BreezeX-Dark
 
@@ -110,6 +106,8 @@ bindsym $mod+space exec $menu
 # Change normal to inverse to use left mouse button for resizing and right
 # mouse button for dragging.
 floating_modifier $mod normal
+
+for_window [floating] border pixel 2
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
