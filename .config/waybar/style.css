@@ -5,30 +5,61 @@
 	background-color: transparent;
 }
 
-tooltip label {
+tooltip {
+	background-color: transparent;
+}
+
+tooltip > box {
+	border: 2px solid #7aa2f7ff;
 	background-color: #383c4a;
+	border-radius: 10px;
+	padding: 4px 8px;
+}
+
+tooltip label {
 	color: white;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-left: 8px;
-	padding-right: 8px;
+	background-color: transparent;
+}
+
+menu {
+	border: 2px solid #7aa2f7ff;
+	border-radius: 10px;
+	background-color: #383c4a;
+}
+
+menuitem {
+	margin: 4px;
+	padding: 2px 8px 2px 8px;
 	border-radius: 10px;
 }
 
-#connections,
-#keyboard-state,
+menuitem:hover {
+	border-radius: 8px;
+	background-color: #7aa2f7ff;
+}
+
+menuitem:hover label {
+	border-radius: 10px;
+	color: #000000;
+	font-weight: bold;
+}
+
 #misc,
-#utils,
-#tray,
 #system,
+#connections,
+#utils {
+	border-radius: 10px;
+	background-color: #383c4a;
+	color: #ffffff;
+}
+
+#keyboard-state,
+#tray,
 #custom-pacman {
 	border-radius: 10px;
 	background-color: #383c4a;
 	color: #ffffff;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding: 4px 8px;
 }
 
 #mode,
@@ -48,41 +79,62 @@ tooltip label {
 	background-color: #e63946;
 }
 
-#mode, #scratchpad {
-	background-color: #8ecae6;
+#mode,
+#scratchpad {
+	background-color: #7aa2f7ff;
 	color: #000000;
+	font-weight: bold;
 }
 
 #mpris:not(.paused) {
-  background: linear-gradient(90deg,
-    #e66465,
-    #f6b73c,
-    #6dd5ed,
-    #c084f1,
-    #ff9a9e,
-    #a1ffce,
-    #fbc2eb,
-    #fad0c4,
-    #8fd3f4,
-    #84fab0,
-    #dcb0ed,
-    #f5576c
-  );
-  background-size: 1000% 1000%;
-  animation: gradientShift 30s ease-in-out infinite;
-  color: #000;
+	background: linear-gradient(
+		90deg,
+		#e66465,
+		#f6b73c,
+		#6dd5ed,
+		#c084f1,
+		#ff9a9e,
+		#a1ffce,
+		#fbc2eb,
+		#fad0c4,
+		#8fd3f4,
+		#84fab0,
+		#dcb0ed,
+		#f5576c
+	);
+	background-size: 1000% 1000%;
+	animation: gradientShift 30s ease-in-out infinite;
+	color: #000;
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  12.5% { background-position: 20% 50%; }
-  25% { background-position: 45% 50%; }
-  37.5% { background-position: 70% 50%; }
-  50% { background-position: 100% 50%; }
-  62.5% { background-position: 70% 50%; }
-  75% { background-position: 45% 50%; }
-  87.5% { background-position: 20% 50%; }
-  100% { background-position: 0% 50%; }
+	0% {
+		background-position: 0% 50%;
+	}
+	12.5% {
+		background-position: 20% 50%;
+	}
+	25% {
+		background-position: 45% 50%;
+	}
+	37.5% {
+		background-position: 70% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	62.5% {
+		background-position: 70% 50%;
+	}
+	75% {
+		background-position: 45% 50%;
+	}
+	87.5% {
+		background-position: 20% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 #mode,
@@ -90,22 +142,24 @@ tooltip label {
 #clock,
 #privacy,
 #mpris,
-#custom-power,
-#workspaces button {
-	padding-left: 8px;
-	padding-right: 8px;
+#custom-power {
+	padding: 0px 4px;
 }
 
-#pulseaudio:not(.microphone),
-#pulseaudio.microphone,
-#memory,
-#temperature,
+#pulseaudio,
+#battery,
 #disk,
 #backlight,
+#memory,
+#temperature,
+#cpu,
 #custom-uxplay,
 #custom-todo,
-#bluetooth {
-	padding-right: 8px;
+#custom-recorder,
+#bluetooth,
+#network {
+	padding: 0px 4px;
+	margin: 4px;
 }
 
 #battery.charging {
@@ -130,6 +184,37 @@ tooltip label {
 	}
 }
 
+#workspaces {
+	border-radius: 10px;
+	background-color: #383c4a;
+	color: #ffffff;
+}
+
+#workspaces button {
+	padding: 0px 8px;
+	margin: 4px;
+	background-color: #383c4a;
+}
+
+#workspaces button.focused {
+	border-radius: inherit;
+	background-color: #7aa2f7ff;
+}
+
+#workspaces button.focused label {
+	color: #000000;
+}
+
+#workspaces button.focused:hover {
+	border-radius: inherit;
+	background-color: #7aa2f7ff;
+}
+
+#workspaces button.urgent {
+	border-radius: inherit;
+	background-color: #fc0c00;
+}
+
 #workspaces button:hover {
 	border-radius: inherit;
 	background-color: #666768;
@@ -140,11 +225,11 @@ tooltip label {
 }
 
 #custom-recorder.saving {
-  color: #32e47c;
+	color: #32e47c;
 }
 
 #custom-recorder.active {
-  color: #e63946;
+	color: #e63946;
 }
 
 #custom-pacman {
@@ -157,16 +242,16 @@ tooltip label {
 }
 
 #temperature.critical {
-  color: #e63946;
+	color: #e63946;
 }
 
-menu {
-	border-radius: 15px;
-	background-color: #383c4a;
-	color: #ffffff;
-}
-
-menuitem {
-	padding: 8px;
-	border-radius: 15px;
+#pulseaudio:hover,
+#cpu:hover,
+#disk:hover,
+#bluetooth:hover,
+#custom-recorder:hover,
+#network:hover {
+	border-radius: 6px;
+	color: #000000;
+	background-color: #7aa2f7ff;
 }
