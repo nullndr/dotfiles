@@ -1,16 +1,18 @@
+@import url("../colors/style.css");
+
 * {
 	all: unset;
 	min-height: 20px;
 	font-family: "Symbols Nerd Font", monospace;
-	color: #ffffff;
-	border-radius: 8px;
-	background-color: #383c4a;
+	color: @text_primary;
+	border-radius: 10px;
+	background-color: @bg_base;
 	font-size: 1rem;
 }
 
 @keyframes redblink {
 	to {
-		color: #f53c3c;
+		color: @danger;
 	}
 }
 
@@ -45,7 +47,7 @@
 }
 
 tooltip {
-	border: 2px solid #7aa2f7ff;
+	border: 2px solid @accent;
 }
 
 tooltip box {
@@ -58,12 +60,13 @@ window#waybar box {
 }
 
 menu {
-	border: 2px solid #7aa2f7ff;
+	border: 2px solid @accent;
 }
 
 menuitem {
 	margin: 4px;
 	padding: 2px 8px;
+	border-radius: 8px;
 }
 
 menu separator {
@@ -72,9 +75,9 @@ menu separator {
 
 menuitem:hover,
 menuitem:hover label {
-	color: #000000;
+	color: @active_text;
 	font-weight: bold;
-	background-color: #7aa2f7ff;
+	background-color: @accent;
 }
 
 #tray,
@@ -96,14 +99,10 @@ menuitem:hover label {
 	padding: 4px;
 }
 
-#privacy {
-	background-color: #e63946;
-}
-
 #mode,
 #scratchpad {
-	background-color: #7aa2f7ff;
-	color: #000000;
+	background-color: @accent;
+	color: @active_text;
 	font-weight: bold;
 }
 
@@ -125,7 +124,7 @@ menuitem:hover label {
 	);
 	background-size: 1000% 1000%;
 	animation: gradientShift 30s ease-in-out infinite;
-	color: #000000;
+	color: @active_text;
 }
 
 #pulseaudio,
@@ -136,6 +135,7 @@ menuitem:hover label {
 #temperature,
 #cpu,
 #power-profiles-daemon,
+#privacy,
 #custom-uxplay,
 #custom-todo,
 #custom-recorder,
@@ -147,14 +147,6 @@ menuitem:hover label {
 	padding: 0px 8px;
 }
 
-#battery.charging {
-	color: #32e47c;
-}
-
-#battery.warning:not(.charging) {
-	color: #ffbe61;
-}
-
 #battery.critical:not(.charging) {
 	animation-name: redblink;
 	animation-duration: 0.5s;
@@ -163,44 +155,48 @@ menuitem:hover label {
 	animation-direction: alternate;
 }
 
-#workspaces button {
-	background-color: #383c4a;
+#workspaces button:hover,
+#workspaces button:hover label {
+	background-color: @bg_hover;
 }
+
 
 #workspaces button.focused,
 #workspaces button.focused label,
 #workspaces button.focused:hover,
 #workspaces button.focused:hover label {
-	background-color: #7aa2f7ff;
+	background-color: @accent;
 }
 
+#workspaces button.focused label,
 #workspaces button.urgent label,
+#workspaces button.ugent:hover label
 #workspaces button.focused label {
-	color: #000000;
+	color: @active_text;
 }
 
-#workspaces button.urgent {
-	background-color: #fc0c00;
-}
-
-#workspaces button:hover,
-#workspaces button:hover label {
-	background-color: #666768;
+#workspaces button.urgent,
+#workspaces button.ugent:hover,
+#workspaces button.urgent label {
+	background-color: @danger;
 }
 
 #custom-pacman,
+#battery.charging,
 #idle_inhibitor.activated,
 #custom-recorder.saving {
-	color: #32e47c;
+	color: @success;
 }
 
+#battery.warning:not(.charging),
 #temperature.warning {
-	color: #ffbe61;
+	color: @warning;
 }
 
+#privacy revealer box *,
 #custom-recorder.active,
 #temperature.critical {
-	color: #e63946;
+	color: @danger;
 }
 
 #power-profiles-daemon:hover,
@@ -211,8 +207,8 @@ menuitem:hover label {
 #custom-recorder:hover,
 #network:hover {
 	border-radius: 6px;
-	color: #000000;
-	background-color: #7aa2f7ff;
+	color: @active_text;
+	background-color: @accent;
 }
 
 #workspaces button,

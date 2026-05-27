@@ -1,0 +1,11 @@
+{
+	"temperature": {
+		"tooltip": true,
+		"hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon9/temp1_input",
+		"warning-threshold": 60,
+		"critical-threshold": 80,
+		"format": "{temperatureC}°C {icon}",
+		"format-icons": ["", "", "", "", ""],
+		"tooltip-format": "Currently at <span><b>{temperatureC}°C</b></span>"
+	}
+}

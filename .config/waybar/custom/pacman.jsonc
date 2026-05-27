@@ -4,6 +4,7 @@
 		"format": "{}",
 		"return-type": "json",
 		"exec": "$HOME/.config/waybar/scripts/check-updates.sh",
-		"signal": 10
+		"signal": 10,
+		"every": 3600
 	}
 }

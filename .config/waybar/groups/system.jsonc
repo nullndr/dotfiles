@@ -1,0 +1,10 @@
+{
+	"group/system": {
+		"orientation": "inherit",
+		"modules": ["cpu", "temperature", "memory", "disk"],
+		"drawer": {
+			"start-expanded": false,
+			"transition-left-to-right": false
+		}
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"include": [
+		"./sway/workspaces.jsonc",
+		"./sway/mode.jsonc",
+		"./sway/scratchpad.jsonc"
+	]
+}

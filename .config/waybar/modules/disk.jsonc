@@ -1,0 +1,11 @@
+{
+	"disk": {
+		"interval": 3,
+		"tooltip": true,
+		"tooltip-format": "<span><b>{used}</b></span> used out of <span foreground=\"#8ecae6\"><b>{total} ({percentage_used}%)</b></span> on <span foreground=\"#32e47c\"><b>{path}</b></span>",
+		"format": "{used} ",
+		"unit": "GB",
+		"path": "/home/andrea",
+		"on-click": "nemo"
+	}
+}

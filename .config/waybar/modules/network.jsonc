@@ -1,0 +1,24 @@
+{
+	"network": {
+		"interval": 3,
+		"tooltip": true,
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"tooltip-format-wifi": "<span foreground=\"#8ecae6\"><b>{essid}</b></span>: <span><b>{ipaddr}</b></span>\n\n{signaldBm}dBm ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+		"tooltip-format-ethernet": "{ipaddr} ({ifname}) via {essid}\n\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+		"tooltip-format-disconnected": "Disconnected",
+		"format": "{ifname}",
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+		"format-disconnected": "󰖪",
+		"format-wifi": "{icon}",
+		"format-ethernet": "󰈀",
+		"max-length": 50,
+		"menu": "on-click",
+		"menu-file": "~/.config/waybar/menu/network.xml",
+		"menu-actions": {
+			"action-1": "nmcli device disconnect wlo1",
+			"action-2": "nmcli device connect wlo1",
+			"action-3": "alacritty -e nmtui",
+			"action-4": "nm-connection-editor"
+		}
+	}
+}

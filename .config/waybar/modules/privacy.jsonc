@@ -1,0 +1,34 @@
+{
+	"privacy": {
+		"icon-size": 18,
+		"icon-spacing": 8,
+		"transition-duration": 0,
+		"expand": true,
+		"modules": [
+			{
+				"tooltip": true,
+				"type": "screenshare",
+				"tooltip-icon-size": 18
+			},
+			{
+				"tooltip": true,
+				"type": "audio-out",
+				"tooltip-icon-size": 18
+			},
+			{
+				"tooltip": true,
+				"type": "audio-in",
+				"tooltip-icon-size": 18
+			}
+		],
+		"ignore": [
+			{ "type": "audio-out", "name": "audio-src" },
+			{ "type": "audio-out", "name": "Firefox" },
+			{ "type": "audio-in", "name": "Firefox" },
+			{ "type": "audio-out", "name": "Chromium" },
+			{ "type": "audio-in", "name": "Chromium" },
+			{ "type": "audio-out", "name": "Telegram" },
+			{ "type": "audio-in", "name": "Telegram" }
+		]
+	}
+}

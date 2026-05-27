@@ -1,0 +1,10 @@
+{
+	"group/misc": {
+		"orientation": "inherit",
+		"modules": ["battery", "pulseaudio", "pulseaudio#microphone", "backlight"],
+		"drawer": {
+			"start-expanded": false,
+			"transition-left-to-right": false
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"include": [
+		"./custom/logo.jsonc",
+		"./custom/pacman.jsonc",
+		"./custom/power.jsonc",
+		"./custom/recorder.jsonc",
+		"./custom/todo.jsonc",
+		"./custom/uxplay.jsonc"
+	]
+}

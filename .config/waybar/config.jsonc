@@ -6,18 +6,10 @@
 	"position": "bottom",
 	"margin": "5 5 5 5",
 	"include": [
-		"./modules/sway.jsonc",
-		"./modules/misc.jsonc",
-		"./modules/groups/system.jsonc",
-		"./modules/groups/misc.jsonc",
-		"./modules/groups/connections.jsonc",
-		"./modules/groups/utils.jsonc",
-		"./modules/custom/pacman.jsonc",
-		"./modules/custom/power.jsonc",
-		"./modules/custom/recorder.jsonc",
-		"./modules/custom/uxplay.jsonc",
-		"./modules/custom/todo.jsonc",
-		"./modules/custom/logo.jsonc"
+		"./custom/config.jsonc",
+		"./groups/config.jsonc",
+		"./modules/config.jsonc",
+		"./sway/config.jsonc"
 	],
 	"modules-left": [
 		"custom/logo",

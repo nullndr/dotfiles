@@ -1,0 +1,13 @@
+{
+	"mpris": {
+		"interval": 1,
+		"tooltip-format": "{title} - {artist} [{position}/{length}]",
+		"format": "{player_icon} {dynamic}",
+		"dynamic-len": 20,
+		"player-icons": {
+			"spotify": "",
+			"default": ""
+		},
+		"ignored-players": ["firefox", "TelegramDesktop"]
+	}
+}

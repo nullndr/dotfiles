@@ -1,0 +1,24 @@
+{
+	"pulseaudio": {
+		"tooltip": true,
+		"tooltip-format": "Playing at <span><b>{volume}%</b></span> on <span foreground=\"#8ecae6\"><b>{desc}</b></span>",
+		"format": "{volume}% {icon}",
+		"format-muted": "{volume}% ",
+		"format-icons": {
+			"default": ["", "", ""]
+		},
+		"on-click": "pavucontrol -t 3",
+		"on-click-right": "pamixer -t"
+	},
+	"pulseaudio#microphone": {
+		"tooltip": true,
+		"tooltip-format": "{format_source}",
+		"format": "{format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "{volume}% ",
+		"on-click": "pavucontrol -t 4",
+		"on-click-right": "pamixer --default-source -t",
+		"on-scroll-up": "pamixer --default-source --increase 1",
+		"on-scroll-down": "pamixer --default-source --decrease 1"
+	}
+}

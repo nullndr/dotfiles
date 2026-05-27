@@ -1,0 +1,19 @@
+{
+	"include": [
+		"./modules/backlight.jsonc",
+		"./modules/battery.jsonc",
+		"./modules/bluetooth.jsonc",
+		"./modules/clock.jsonc",
+		"./modules/cpu.jsonc",
+		"./modules/disk.jsonc",
+		"./modules/idle_inhibitor.jsonc",
+		"./modules/memory.jsonc",
+		"./modules/mpris.jsonc",
+		"./modules/network.jsonc",
+		"./modules/power_profiles_daemon.jsonc",
+		"./modules/privacy.jsonc",
+		"./modules/pulseaudio.jsonc",
+		"./modules/temperature.jsonc",
+		"./modules/tray.jsonc"
+	]
+}

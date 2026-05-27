@@ -1,0 +1,7 @@
+{
+	"sway/mode": {
+		"tooltip": false,
+		"format": "{}",
+		"on-click": "sway mode default"
+	}
+}

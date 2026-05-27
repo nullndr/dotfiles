@@ -1,0 +1,7 @@
+{
+	"cpu": {
+		"interval": 1,
+		"format": "",
+		"on-click": "alacritty -e btop"
+	}
+}

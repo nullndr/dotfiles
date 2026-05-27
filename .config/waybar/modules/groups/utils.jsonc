@@ -1,6 +1,0 @@
-{
-	"group/utils": {
-		"orientation": "inherit",
-		"modules": ["custom/todo", "custom/uxplay", "custom/recorder"]
-	}
-}

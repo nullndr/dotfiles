@@ -1,0 +1,9 @@
+{
+	"backlight": {
+		"tooltip": true,
+		"tooltip-format": "Currently at <span><b>{percent}%</b></span>",
+		"device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["", "", "", "", "", "󰃟", "󰃝", "󰃠"]
+	}
+}

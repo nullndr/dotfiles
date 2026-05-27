@@ -1,0 +1,12 @@
+{
+	"group/utils": {
+		"orientation": "inherit",
+		"modules": [
+			"custom/todo",
+			"privacy",
+			"power-profiles-daemon",
+			"custom/uxplay",
+			"custom/recorder"
+		]
+	}
+}

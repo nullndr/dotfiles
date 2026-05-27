@@ -1,0 +1,8 @@
+{
+	"memory": {
+		"interval": 3,
+		"tooltip": true,
+		"tooltip-format": "<span><b>{used:0.2f}GiB</b></span> used out of <span foreground=\"#8ecae6\"><b>{total:0.2f}GiB ({percentage}%)</b></span>",
+		"format": "{used:0.2f}GiB "
+	}
+}
