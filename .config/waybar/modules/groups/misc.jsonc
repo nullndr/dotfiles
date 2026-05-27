@@ -10,7 +10,7 @@
 	"battery": {
 		"interval": 1,
 		"tooltip": true,
-		"tooltip-format-full": "<span foreground=\"#32e47c\"><b>Full</b></span>",
+		"tooltip-format-full": "",
 		"tooltip-format-discharging": "Empty in <span><b>{time}</b></span>\nPower: {power:0.2f}w\nHealth: {health}%",
 		"tooltip-format-charging": "Full in <span><b>{time}</b></span>\nPower: {power:0.2f}w\nHealth: {health}%",
 		"states": {
@@ -20,7 +20,7 @@
 		"format": "{capacity}% {icon}",
 		"format-full": "<span foreground=\"#32e47c\"><b>Full {icon}</b></span>",
 		"format-time": "{H}h {m}m",
-		"format-charging": "{capacity}% {icon}",
+		"format-charging": "<span><b>{capacity}%</b></span> {icon}",
 		"format-plugged": "{capacity}% ",
 		"format-icons": {
 			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
@@ -52,6 +52,7 @@
 	},
 	"backlight": {
 		"tooltip": true,
+		"tooltip-format": "Currently at <span><b>{percent}%</b></span>",
 		"device": "intel_backlight",
 		"format": "{percent}% {icon}",
 		"format-icons": ["", "", "", "", "", "󰃟", "󰃝", "󰃠"]

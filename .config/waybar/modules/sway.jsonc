@@ -8,10 +8,8 @@
 		"format-icons": {
 			"urgent": "",
 			"focused": "",
-			"default": ""
-		},
-		"actions": {
-			"on-click": ":"
+			"default": "",
+			"persistent": ""
 		}
 	},
 	"sway/mode": {

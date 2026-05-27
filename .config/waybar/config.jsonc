@@ -15,11 +15,19 @@
 		"./modules/custom/pacman.jsonc",
 		"./modules/custom/power.jsonc",
 		"./modules/custom/recorder.jsonc",
-		"./modules/custom/uxplay.jsonc"
+		"./modules/custom/uxplay.jsonc",
+		"./modules/custom/todo.jsonc",
+		"./modules/custom/logo.jsonc"
 	],
-	"modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "mpris"],
+	"modules-left": [
+		"custom/logo",
+		"sway/workspaces",
+		"sway/mode",
+		"sway/scratchpad",
+		"mpris"
+	],
 	"modules-center": ["clock"],
-	"spacing": 8,
+	"spacing": 4,
 	"modules-right": [
 		"custom/pacman",
 		"tray",

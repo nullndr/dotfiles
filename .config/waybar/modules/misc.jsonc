@@ -1,7 +1,7 @@
 {
 	"tray": {
 		"icon-size": 18,
-		"spacing": 10
+		"spacing": 8
 	},
 	"mpris": {
 		"interval": 1,
@@ -18,7 +18,7 @@
 		"tooltip": true,
 		"tooltip-format": "{calendar}",
 		"timezones": ["Europe/Rome"],
-		"format": "{:%a %d %H:%M}",
+		"format": "{:%H:%M}",
 		"format-alt": "{%H:%M}",
 		"calendar": {
 			"mode": "year",
@@ -75,5 +75,16 @@
 			{ "type": "audio-out", "name": "Telegram" },
 			{ "type": "audio-in", "name": "Telegram" }
 		]
+	},
+	"power-profiles-daemon": {
+		"tooltip": true,
+		"format": "{icon}",
+		"tooltip-format": "󰓅 {profile}\n󰒓 {driver}",
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": ""
+		}
 	}
 }

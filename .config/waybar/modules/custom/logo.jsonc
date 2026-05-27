@@ -1,0 +1,8 @@
+{
+	"custom/logo": {
+		"tooltip": true,
+		"format": "{}",
+		"return-type": "json",
+		"exec": "$HOME/.config/waybar/scripts/arch.sh"
+	}
+}
