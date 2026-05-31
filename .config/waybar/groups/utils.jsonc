@@ -3,6 +3,7 @@
 		"orientation": "inherit",
 		"modules": [
 			"custom/todo",
+			"custom/cups",
 			"privacy",
 			"power-profiles-daemon",
 			"custom/uxplay",

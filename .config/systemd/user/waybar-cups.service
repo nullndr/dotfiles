@@ -1,0 +1,18 @@
+[Unit]
+Description=Notify waybar of cups state change
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash -c '\
+  gdbus monitor \
+    --system \
+    --dest org.freedesktop.systemd1 \
+    --object-path /org/freedesktop/systemd1/unit/cups_2eservice \
+  | grep --line-buffered "ActiveState" \
+  | while read -r _; do \
+      pkill -RTMIN+13 waybar; \
+    done'
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

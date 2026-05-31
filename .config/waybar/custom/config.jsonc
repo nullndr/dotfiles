@@ -1,5 +1,6 @@
 {
 	"include": [
+		"./custom/cups.jsonc",
 		"./custom/logo.jsonc",
 		"./custom/pacman.jsonc",
 		"./custom/power.jsonc",

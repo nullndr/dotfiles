@@ -1,0 +1,9 @@
+{
+	"custom/cups": {
+		"tooltip": true,
+		"format": "{}",
+		"exec": "$HOME/.config/waybar/scripts/check-cups.sh",
+		"return-type": "json",
+		"signal": 13
+	}
+}
