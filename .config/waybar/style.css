@@ -70,14 +70,28 @@ menuitem {
 }
 
 menu separator {
+	min-height: 1px;
 	margin: 0px 8px;
+	border-top: 1px solid @text_primary;
 }
 
 menuitem:hover,
-menuitem:hover label {
+menuitem:hover > label,
+menu menuitem:hover arrow {
 	color: @active_text;
 	font-weight: bold;
 	background-color: @accent;
+}
+
+menu menuitem arrow {
+	color: @text_primary;
+	min-width: 16px;
+	min-height: 16px;
+	margin: 0px 0px 0px 8px;
+}
+
+menu menuitem arrow:dir(ltr) {
+	-gtk-icon-source: -gtk-icontheme("lucide-chevron-right-symbolic");
 }
 
 #tray,
@@ -215,8 +229,10 @@ menuitem:hover label {
 #workspaces button,
 #connections > widget > *,
 #utils > widget > *,
-#system revealer > box > widget > *,
-#misc revealer > box > widget > * {
+#system > widget > box,
+#system-revealer revealer box > widget.inner > *,
+#misc > widget > box,
+#misc-revealer revealer > box > widget.inner > * {
 	margin-right: 4px;
 }
 
