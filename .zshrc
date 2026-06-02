@@ -8,7 +8,7 @@ eval "$(rbenv init - zsh)"
 setopt autocd              # change directory just by typing its name
 setopt correct             # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
-setopt magicequalsubst     # enable filename expansion for arguments of the form 'anything=expression'
+setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
 setopt nonomatch           # hide error message if there is no match for the pattern
 setopt notify              # report the status of background jobs immediately
 setopt numericglobsort     # sort filenames numerically when it makes sense
@@ -91,7 +91,6 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
-# Alias definitions.
 [ -f ~/.aliases ] && . ~/.aliases
 
 [ -f ~/.exports ] && . ~/.exports
@@ -105,15 +104,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # plugins
 # plugins=(vi-mode)
-
-# Bun and bun completitions
-[ -s "$HOME/.bun/_bun" ] && . "$HOME/.bun/_bun"
-
-# Fnm
-FNM_PATH="/home/andrea/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/andrea/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
 
 eval "$(starship init zsh)"

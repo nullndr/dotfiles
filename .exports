@@ -1,0 +1,23 @@
+export LANG="en_US.UTF-8"
+
+export SDL_VIDEODRIVER="wayland"
+
+export _JAVA_AWT_WM_NONREPARENTING="1"
+
+export QT_QPA_PLATFORM="wayland"
+export QT_QPA_PLATFORMTHEME="qt6ct"
+
+export XDG_CURRENT_DESKTOP="sway"
+export XDG_SESSION_DESKTOP="sway"
+
+export GPG_TTY="$(tty)"
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+export BUN_PATH="$HOME/.bun"
+export FNM_PATH="$HOME/.local/share/fnm"
+
+export PATH="$PATH:$HOME/.rbenv/shims"
+export PATH="$PATH:$HOME/.nimble/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$BUN_PATH/bin"

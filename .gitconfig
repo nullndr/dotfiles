@@ -1,0 +1,38 @@
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+[user]
+    email = nullndr@proton.me
+    name = Andrea
+    signingkey = 8DA8996EF89F33BB
+[credential]
+    helper = store
+[core]
+    editor = vim
+[commit]
+    gpgsign = false
+    verbose = true
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
+[init]
+    defaultBranch = main
+[diff]
+  algorithm = histogram
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+[help]
+    autocorrect = prompt
+[merge]
+    #conflictstyle = zdiff3
