@@ -26,6 +26,7 @@
 		"group/utils",
 		"group/system",
 		"group/misc",
-		"group/connections"
+		"group/connections",
+		"custom/power"
 	]
 }

@@ -63,7 +63,7 @@ menu {
 	border: 2px solid @accent;
 }
 
-menuitem {
+menu menuitem {
 	margin: 4px;
 	padding: 2px 8px;
 	border-radius: 8px;
@@ -75,8 +75,10 @@ menu separator {
 	border-top: 1px solid @text_primary;
 }
 
-menuitem:hover,
-menuitem:hover > label,
+menu menuitem:hover,
+menu menuitem:hover > label,
+menu menuitem:hover > box,
+menu menuitem:hover > box > *,
 menu menuitem:hover arrow {
 	color: @active_text;
 	font-weight: bold;
@@ -101,6 +103,7 @@ menu menuitem arrow:dir(ltr) {
 #scratchpad,
 #custom-logo,
 #custom-pacman,
+#custom-power,
 #workspaces button {
 	padding: 0px 8px;
 }

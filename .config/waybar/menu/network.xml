@@ -21,7 +21,21 @@
     </child>
     <child>
       <object class="GtkMenuItem" id="action-4">
-        <property name="label"> Network settings</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkImage">
+                <property name="icon-name">user-group-properties-symbolic</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">Network settings</property>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
   </object>
