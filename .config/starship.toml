@@ -1,0 +1,74 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = "$hostname$localip$all"
+
+[aws]
+  disabled = false
+  symbol   = ""
+
+[battery]
+  disabled = false
+  format   = "[$symbol $percentage]($style) "
+  [[battery.display]]
+    charging_symbol    = "󰂈"
+    discharging_symbol = "󰁽"
+    threshold          = 40
+  [[battery.display]]
+    charging_symbol    = "󰂇"
+    discharging_symbol = "󰁼"
+    threshold          = 30
+  [[battery.display]]
+    charging_symbol    = "󰂆"
+    discharging_symbol = "󰁻"
+    threshold          = 20
+  [[battery.display]]
+    charging_symbol    = "󰢜"
+    discharging_symbol = "󰁺"
+    threshold          = 10
+
+[c]
+  disabled = false
+
+[character]
+  format = " $symbol "
+
+[cmd_duration]
+  show_milliseconds = true
+
+[directory]
+  disabled          = false
+  format            = "[$path]($style)[( $read_only)]($read_only_style) "
+  home_symbol       = "🏠"
+  read_only         = "󰌾"
+  truncate_to_repo  = false
+  truncation_symbol = "../"
+
+[hostname]
+  disabled   = false
+  format     = "[\\[ssh $hostname](bold green)"
+  ssh_only   = true
+  ssh_symbol = ""
+
+[localip]
+  disabled = false
+  format   = "[@$localipv4\\]](bold green) "
+  ssh_only = true
+
+[nodejs]
+  disabled = false
+
+[os]
+  disabled = false
+  [os.symbols]
+    Arch   = ""
+    Debian = "󰣚"
+
+[sudo]
+  disabled = false
+
+[time]
+  disabled = true
+
+[username]
+  disabled    = false
+  show_always = true

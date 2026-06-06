@@ -1,11 +1,18 @@
+[window]
+  padding.x = 8
+  padding.y = 8
+
 [font]
-  bold                = { family = "Jetbrains Mono", style = "Bold" }
-  bold_italic         = { family = "Jetbrains Mono", style = "Bold Italic" }
+  bold.style          = "Bold"
+  bold_italic.style   = "Bold Italic"
   builtin_box_drawing = true
-  glyph_offset        = { x = 0, y = 0 }
-  italic              = { family = "Jetbrains Mono", style = "Italic" }
-  normal              = { family = "Jetbrains Mono", style = "regular" }
+  glyph_offset.x      = 0
+  glyph_offset.y      = 0
+  italic.style        = "Italic"
+  normal.family       = "JetbrainsMono Nerd Font"
+  normal.style        = "Regular"
   size                = 12
+
 
 [colors.bright]
   black   = "#686868"
@@ -32,8 +39,10 @@
   foreground = "#eff0eb"
 
 [cursor]
-  style.blinking = "Always"
+  style.blinking = "On"
   style.shape    = "Block"
 
-[shell]
-  program = "/bin/zsh"
+[terminal]
+
+  [terminal.shell]
+    program = "/bin/zsh"
