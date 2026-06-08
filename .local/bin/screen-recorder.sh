@@ -11,16 +11,25 @@ load_user_dirs() {
 }
 
 main() {
-  pid="$(pgrep "wf-recorder" || pgrep "slurp")"
-  status=$?
-
-  if [[ $status != 0 ]]; then 
+  if pgrep -x 'wf-recorder|slurp' > /dev/null; then 
+    if pgrep -x wf-recorder; then
+      pkill --signal SIGINT wf-recorder
+      touch /tmp/closing_wfrecorder
+      toggle_screenrecording
+      while pgrep -x wf-recorder  > /dev/null; do
+        :
+      done
+      rm /tmp/closing_wfrecorder
+    else
+      pkill --signal SIGINT slurp 
+    fi
+  else 
     load_user_dirs
 
     output_dir="${XDG_VIDEOS_DIR:-$HOME/Videos}"
 
     if [[ ! -d "$output_dir" ]]; then
-      notify-send "Screen recording output directory does not exist: $output_dir" -u critical -t 3000
+      notify-send -u critical -t 5000 "Screen recording output directory does not exist: $output_dir"
       exit 1
     fi
 
@@ -31,9 +40,6 @@ main() {
       wf-recorder -g "$region" -f "$filename" &
       toggle_screenrecording
     fi
-  else 
-    pkill --signal SIGINT wf-recorder
-    toggle_screenrecording
   fi
 }
 

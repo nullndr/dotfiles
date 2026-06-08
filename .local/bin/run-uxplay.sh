@@ -17,7 +17,6 @@ main() {
     nohup uxplay -vsync > /dev/null 2>&1 &
     toggle_uxplay
   fi
-
 }
 
 main "$@"

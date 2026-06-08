@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 main () {
   get_sink_muted() {

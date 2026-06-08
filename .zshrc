@@ -99,8 +99,27 @@ fi
 
 [ -f ~/.profile ] && . ~/.profile
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Load plugins by looking at the possible installation paths, this is done because
+# arch and debian differs in where the plugins are installed
+_zsh_source_plugin() {
+    local name="$1"
+    local candidates=(
+        "/usr/share/zsh/plugins/$name/$name.zsh"        # Arch
+        "/usr/share/$name/$name.zsh"                    # Debian/Ubuntu
+    )
+
+    for f in $candidates; do
+        if [[ -f "$f" ]]; then 
+            source "$f"
+            return
+        fi
+    done
+
+    echo "zsh: plugin '$name' not found" >&2
+}
+
+_zsh_source_plugin zsh-autosuggestions
+_zsh_source_plugin zsh-syntax-highlighting
 
 # plugins
 # plugins=(vi-mode)

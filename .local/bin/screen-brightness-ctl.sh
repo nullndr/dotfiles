@@ -22,19 +22,19 @@ main() {
   local WOBSOCK="$XDG_RUNTIME_DIR/wob.sock"
 
   if [[ -z "$1" ]]; then
-    echo "Provide --increment or --decrement"
+    echo "Provide one of [increment|decrement]"
     exit 1
   fi
 
   case "$1" in
-    "--increment")
+    increment)
       increment
     ;;
-    "--decrement")
+    decrement)
       decrement
     ;;
     *)
-      echo "Invalid option, use only --increment or --decrement"
+      echo "Invalid option, use only [increment|decrement]"
       exit 1
     ;;
   esac
