@@ -1,0 +1,30 @@
+{
+	"name": "main",
+	"mode": "dock",
+	"reload_style_on_change": true,
+	"layer": "top",
+	"position": "bottom",
+	"margin": "5 5 5 5",
+	"include": [
+		"./custom/config.jsonc",
+		"./groups/config.jsonc",
+		"./modules/config.jsonc",
+		"./hypr/config.jsonc"
+	],
+	"modules-left": [
+		"custom/logo",
+		"hyprland/workspaces",
+		"mpris"
+	],
+	"modules-center": ["clock"],
+	"spacing": 4,
+	"modules-right": [
+		"custom/pacman",
+		"tray",
+		"group/utils",
+		"group/system",
+		"group/misc",
+		"group/connections",
+		"custom/power"
+	]
+}
