@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 
 main() {
-  local text
-  local tooltip
+  local text=""
+  local tooltip=""
   local numberOfTodos=`awk 'NF { count++ } END { print count+0 }' "$HOME/.todo/todo.txt"`
 
   if (( "$numberOfTodos" == 1 )); then

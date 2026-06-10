@@ -1,0 +1,11 @@
+{
+	"group/misc-revealer": {
+		"orientation": "inherit",
+		"modules": ["pulseaudio", "backlight", "pulseaudio#microphone"],
+		"drawer": {
+			"start-expanded": false,
+			"transition-left-to-right": false,
+      "children-class": "inner"
+		}
+	}
+}

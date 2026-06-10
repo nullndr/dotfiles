@@ -2,7 +2,6 @@
 
 * {
 	all: unset;
-	min-height: 20px;
 	font-family: "Symbols Nerd Font", monospace;
 	color: @text_primary;
 	border-radius: 10px;

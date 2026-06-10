@@ -1,0 +1,12 @@
+{
+	"group/system-revealer": {
+		"orientation": "inherit",
+		"modules": ["temperature", "memory", "disk"],
+		"drawer": {
+			"start-expanded": false,
+			"transition-left-to-right": false,
+			"children-class": "inner",
+			"click-to-reveal": true
+		}
+	}
+}

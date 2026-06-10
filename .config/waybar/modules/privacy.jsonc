@@ -22,6 +22,9 @@
 			}
 		],
 		"ignore": [
+			{ "type": "audio-out", "name": "WEBRTC VoiceEngine" },
+			{ "type": "audio-in", "name": "WEBRTC VoiceEngine" },
+			{ "type": "screenshare", "name": "Discord" },
 			{ "type": "audio-out", "name": "audio-src" },
 			{ "type": "audio-out", "name": "Firefox" },
 			{ "type": "audio-in", "name": "Firefox" },

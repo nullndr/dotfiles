@@ -2,7 +2,9 @@
 	"include": [
 		"./groups/connections.jsonc",
 		"./groups/misc.jsonc",
+		"./groups/misc-revealer.jsonc",
 		"./groups/system.jsonc",
+		"./groups/system-revealer.jsonc",
 		"./groups/utils.jsonc"
 	]
 }
