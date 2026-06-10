@@ -7,11 +7,11 @@ increment() {
 decrement() {
   local current_value=$(brightnessctl get)
   
-  if [[ "$current_value" == "4" ]]; then 
+  if (( $current_value <= 4 )); then 
     return 0
   fi
 
-  if [[ "$current_value" == "6000" ]]; then
+  if (( $current_value == 6000 )); then
     brightnessctl set 4
   else 
     brightnessctl set 1%-

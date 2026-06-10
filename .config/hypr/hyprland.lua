@@ -316,7 +316,7 @@ hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd(SCRIPT_DIR .. "/screen-brightnes
 hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd(SCRIPT_DIR .. "/screen-brightness-ctl.sh decrement"),   { locked = true, repeating = true })
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(SCRIPT_DIR .. "/audioctl.sh @DEFAULT_SINK@ increment"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(SCRIPT_DIR .. "/audioctl.sh @DEFAULT_SINK@ increment"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(SCRIPT_DIR .. "/audioctl.sh @DEFAULT_SINK@ decrement"), { locked = true, repeating = true })
 
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(SCRIPT_DIR .. "/audioctl.sh @DEFAULT_SINK@ toggle"),    { locked = true, repeating = false })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd(SCRIPT_DIR .. "/audioctl.sh @DEFAULT_SOURCE@ toggle"),  { locked = true, repeating = false })
