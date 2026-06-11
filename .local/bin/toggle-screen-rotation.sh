@@ -26,9 +26,9 @@ rotate_hyprland() {
   local current=$(hyprctl monitors -j | jq -r ".[] | select(.name==\"$output\") | .transform")
 
   if [[ $current -eq 0 ]]; then
-    hyprctl eval "hl.monitor({ output = \"eDP-1\", mode = \"2880x1800@90\", position = \"0x0\", scale = 1, transform = 2 })"
+    hyprctl eval "hl.monitor({ output = \"eDP-1\", mode = \"1920x1080\", position = \"0x0\", scale = 1, transform = 2 })"
   else
-    hyprctl eval "hl.monitor({ output = \"$output\", mode = \"2880x1800@90\", position = \"0x0\", scale = 1, transform = 0 })"
+    hyprctl eval "hl.monitor({ output = \"$output\", mode = \"1920x1080\", position = \"0x0\", scale = 1, transform = 0 })"
   fi
 }
 

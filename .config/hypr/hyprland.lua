@@ -1,27 +1,14 @@
--- This is an example Hyprland Lua config file.
--- Refer to the wiki for more information.
--- https://wiki.hypr.land/Configuring/Start/
-
--- Please note not all available settings / options are set here.
--- For a full list, see the wiki
-
--- You can (and should!!) split this configuration into multiple files
--- Create your files separately and then require them like this:
--- require("myColors")
-
-
 ------------------
 ---- MONITORS ----
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "",
+    output   = "eDP-1",
     mode     = "1920x1080",
-    position = "auto",
+    position = "0x0",
     scale    = "1",
 })
-
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -30,8 +17,7 @@ hl.monitor({
 -- Set programs that you use
 local terminal    = "alacritty"
 local fileManager = "nemo"
-local menu        = "hyprlauncher"
-
+local menu        = "fuzzel"
 
 -------------------
 ---- AUTOSTART ----
@@ -43,8 +29,6 @@ local menu        = "hyprlauncher"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
---   hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
     hl.exec_cmd("waybar --config ~/.config/waybar/hypr-config.jsonc")
 
     local wobsock = os.getenv("XDG_RUNTIME_DIR") .. "/wob.sock"
@@ -53,8 +37,11 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("systemctl --user import-environment DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE SSH_AUTH_SOCK")
 
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
-end)
 
+    hl.exec_cmd("systemctl --user start hyprpaper.service")
+
+    hl.exec_cmd("hyprpm reload")
+end)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -66,7 +53,6 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("XCURSOR_THEME", "BreezeX-Dark")
 hl.env("HYPRCURSOR_SIZE", "24")
 
-
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
@@ -75,16 +61,14 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
 -- for security reasons
 
--- hl.config({
---   ecosystem = {
---     enforce_permissions = true,
---   },
--- })
+hl.config({
+  ecosystem = {
+    enforce_permissions = true,
+  },
+})
 
--- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
--- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
-
+hl.permission({ binary = "/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", type = "screencopy", mode = "allow" })
+hl.permission({ binary = "/usr/(bin|local/bin)/hyprpm", type = "plugin", mode = "allow" })
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -94,7 +78,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.config({
     general = {
         gaps_in  = 2,
-        gaps_out = 2,
+        gaps_out = 5,
 
         border_size = 2,
 
@@ -109,7 +93,7 @@ hl.config({
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
 
-        layout = "dwindle",
+        layout = "hy3",
     },
 
     decoration = {
@@ -139,10 +123,28 @@ hl.config({
         enabled = true,
     },
 
-    dwindle = {
-        -- pseudotile    = false,
-        preserve_split = true,
+    misc = {
+        force_default_wallpaper = 0,
+        disable_hyprland_logo   = true,
     },
+
+    plugin = {
+        hy3 = {
+            tab_first_window = false,
+
+            autotile = {
+                enable = false,
+            },
+
+            tabs = {
+                colors = {
+                    active        = "0x7aa2f7ff",
+                    active_border = "0xff7aa2f7",
+                    active_text   = "0xff000000",
+                },
+            }
+        }
+    }
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -194,7 +196,9 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
     dwindle = {
-        preserve_split = true, -- You probably want this
+        force_split = 2,
+        preserve_split = true,
+        smart_resizing = false,
     },
 })
 
@@ -211,18 +215,6 @@ hl.config({
         fullscreen_on_one_column = true,
     },
 })
-
-----------------
-----  MISC  ----
-----------------
-
-hl.config({
-    misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
-    },
-})
-
 
 ---------------
 ---- INPUT ----
@@ -259,49 +251,56 @@ hl.device({
     sensitivity = -0.5,
 })
 
-
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
 
 local mainMod = "ALT" -- Sets "Windows" key as main modifier
 local SCRIPT_DIR    = os.getenv("HOME") .. "/.local/bin"
+local hy3 = hl.plugin.hy3
+
+hl.bind(mainMod .. " + w", hy3.change_group("tab"))
+hl.bind(mainMod .. " + e", hy3.change_group("untab"))
+hl.bind(mainMod .. " + b", hy3.make_group("h", { toggle = true }))
+hl.bind(mainMod .. " + v", hy3.make_group("v", { toggle = true }))
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
+hl.bind(mainMod .. " + SHIFT + q", hl.dsp.window.close())
 hl.bind(mainMod .. " + m", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + e", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + v", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + p", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + j", hl.dsp.layout("togglesplit"))    -- dwindle only
+-- hl.bind(mainMod .. " + j", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + SHIFT + Space", function() 
+    local win = hl.get_active_window()
+    if win then
+        hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+    end
+end)
 
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + h", hy3.move_focus("left"))
+hl.bind(mainMod .. " + j", hy3.move_focus("down"))
+hl.bind(mainMod .. " + k", hy3.move_focus("up"))
+hl.bind(mainMod .. " + l", hy3.move_focus("right"))
 
 -- Move the focused window
-hl.bind(mainMod .. " + Shift + h", hl.dsp.window.move({ direction = "left"  }))
-hl.bind(mainMod .. " + Shift + j", hl.dsp.window.move({ direction = "down"  }))
-hl.bind(mainMod .. " + Shift + k", hl.dsp.window.move({ direction = "up"    }))
-hl.bind(mainMod .. " + Shift + l", hl.dsp.window.move({ direction = "right" }))
-
+hl.bind(mainMod .. " + SHIFT + h", hy3.move_window("left"))
+hl.bind(mainMod .. " + SHIFT + j", hy3.move_window("down"))
+hl.bind(mainMod .. " + SHIFT + k", hy3.move_window("up"))
+hl.bind(mainMod .. " + SHIFT + l", hy3.move_window("right"))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + Shift + " .. key,     hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     hy3.move_to_workspace(tostring(i)))
 end
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + s",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + Shift + s", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + SHIFT + s", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -323,12 +322,40 @@ hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd(SCRIPT_DIR .. "/audioctl.sh @DEF
 
 hl.bind("XF86RotateWindows",    hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screen-rotation.sh"),            { locked = false, repeating = false })
 
+hl.bind(mainMod .. " + r", hl.dsp.submap("Resize"))
+
+hl.define_submap("Resize", function()
+    hl.bind(mainMod .. " + l", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
+    hl.bind(mainMod .. "+ h", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+    hl.bind(mainMod .. "+ k", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
+    hl.bind(mainMod .. "+ j", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+
+    hl.bind("escape", hl.dsp.submap("reset"))
+    hl.bind(mainMod .. "+ r", hl.dsp.submap("reset"))
+end)
+
+hl.bind("Print", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh save area"), { locked = false, repeating = false })
+hl.bind(mainMod .. " + Print", hl.dsp.submap("Screenshot"), { locked = false, repeating = false })
+
+hl.define_submap("Screenshot", function()
+    hl.bind(mainMod .. " + s + v", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh save active"), { locked = false, repeating = false })
+    hl.bind(mainMod .. " + c + v", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh copy active"), { locked = false, repeating = false })
+    hl.bind(mainMod .. " + s + a", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh save area"), { locked = false, repeating = false })
+    hl.bind(mainMod .. " + c + a", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh copy area"), { locked = false, repeating = false })
+    hl.bind(mainMod .. " + s + o", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh save output"), { locked = false, repeating = false })
+    hl.bind(mainMod .. " + c + o", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh copy output"), { locked = false, repeating = false })
+    hl.bind(mainMod .. " + s + w", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh save window"), { locked = false, repeating = false })
+    hl.bind(mainMod .. " + c + w", hl.dsp.exec_cmd(SCRIPT_DIR .. "/toggle-screenshot.sh copy window"), { locked = false, repeating = false })
+
+    hl.bind("escape", hl.dsp.submap("reset"))
+    hl.bind("Print", hl.dsp.submap("reset"))
+end)
+
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
-
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
