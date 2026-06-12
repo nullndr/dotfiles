@@ -17,25 +17,35 @@ List of my dot files and config files for my Arch Linux desktop setup.
 - [Sway](https://github.com/swaywm/sway): i3-compatible Wayland compositor
 - [Waybar](https://github.com/Alexays/Waybar): Wayland bar for Sway
 
-## Ly
-
-![ly](./images/ly.png)
-
-## Background
-
-![background](./images/bg.jpg)
-
-## Waybar config
+## Waybar
 
 ![waybar](./images/waybar.png)
 
-![waybar](./images/with_uxplay.png)
+<details>
+  <summary>
+    <span>With <a href="https://github.com/antimof/UxPlay">uxplay</a></span>
+  </summary>
+  <img src="./images/waybar-uxplay.png" />
+</details>
 
-![waybar](./images/expanded_one.png)
+<details style="padding-top: 8px;">
+  <summary>
+    <span>With <a href="https://github.com/todotxt/todo.txt-cli">todo.txt</a></span>
+  </summary>
+  <img src="./images/waybar-todo.png" />
+</details>
 
-![waybar](./images/expanded_two.png)
+<details style="padding-top: 8px;">
+  <summary>
+    <span>With <a href="https://github.com/Alexays/Waybar/wiki/Module:-Tray">tray</a></span>
+  </summary>
+  <img src="./images/waybar-tray.png" />
+</details>
 
-![waybar](./images/sway_mode.png)
-
-![waybar](./images/recording.png)
+<details style="padding-top: 8px;">
+  <summary>
+    <span>With <a href="https://github.com/Alexays/Waybar/wiki/Module:-Hyprland#submap">mode/submap</a></span>
+  </summary>
+  <img src="./images/waybar-mode.png" />
+</details>
 

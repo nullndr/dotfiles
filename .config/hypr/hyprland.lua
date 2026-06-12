@@ -15,9 +15,10 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal    = "alacritty"
-local fileManager = "nemo"
-local menu        = "fuzzel"
+local terminal      = "alacritty"
+local fileManager   = "nemo"
+local menu          = "hyprlauncher"
+local screenlock    = "hyprlock"
 
 -------------------
 ---- AUTOSTART ----
@@ -68,7 +69,9 @@ hl.config({
 })
 
 hl.permission({ binary = "/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", type = "screencopy", mode = "allow" })
-hl.permission({ binary = "/usr/(bin|local/bin)/hyprpm", type = "plugin", mode = "allow" })
+hl.permission({ binary = "/usr/(bin|sbin|local/bin)/hyprpm", type = "plugin", mode = "allow" })
+hl.permission({ binary = "/usr/(bin|sbin|local/bin)/hyprlock", type = "screencopy", mode = "allow" })
+hl.permission({ binary = "/usr/(bin|sbin|local/bin)/grim", type = "screencopy", mode = "allow" })
 
 -----------------------
 ---- LOOK AND FEEL ----
@@ -126,6 +129,7 @@ hl.config({
     misc = {
         force_default_wallpaper = 0,
         disable_hyprland_logo   = true,
+        disable_splash_rendering = true,
     },
 
     plugin = {
@@ -255,23 +259,24 @@ hl.device({
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod = "ALT" -- Sets "Windows" key as main modifier
-local SCRIPT_DIR    = os.getenv("HOME") .. "/.local/bin"
+local mainMod = "ALT"
+local SCRIPT_DIR = os.getenv("HOME") .. "/.local/bin"
 local hy3 = hl.plugin.hy3
+
+hl.bind("SUPER + l", hl.dsp.exec_cmd(screenlock))
 
 hl.bind(mainMod .. " + w", hy3.change_group("tab"))
 hl.bind(mainMod .. " + e", hy3.change_group("untab"))
 hl.bind(mainMod .. " + b", hy3.make_group("h", { toggle = true }))
 hl.bind(mainMod .. " + v", hy3.make_group("v", { toggle = true }))
-
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + SHIFT + q", hl.dsp.window.close())
 hl.bind(mainMod .. " + m", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + p", hl.dsp.window.pseudo())
--- hl.bind(mainMod .. " + j", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind(mainMod .. " + SHIFT + Space", function() 
+
+hl.bind(mainMod .. " + SHIFT + q", hl.dsp.window.close())
+hl.bind(mainMod .. " + SHIFT + u", hl.dsp.exec_cmd(SCRIPT_DIR .. "/run-uxplay.sh"))
+hl.bind(mainMod .. " + SHIFT + Space", function()
     local win = hl.get_active_window()
     if win then
         hl.dispatch(hl.dsp.window.float({ action = "toggle" }))

@@ -4,9 +4,9 @@
 		"modules": [
 			"custom/todo",
 			"custom/cups",
+			"custom/uxplay",
 			"privacy",
 			"power-profiles-daemon",
-			"custom/uxplay",
 			"custom/recorder"
 		]
 	}
