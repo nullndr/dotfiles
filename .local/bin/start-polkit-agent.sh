@@ -46,6 +46,7 @@ main() {
     sway)      start_sway_polkit ;;
     hyprland)  start_hypr_polkit ;;
     *)         echo "Compositor non supportato" >&2; exit 1 ;;
+  esac
 }
 
 main "$@"
