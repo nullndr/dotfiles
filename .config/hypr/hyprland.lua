@@ -26,7 +26,7 @@ hl.monitor({
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function ()
-    hl.exec_cmd("waybar --config ~/.config/waybar/hypr-config.jsonc")
+    hl.exec_cmd("qs")
 
     hl.exec_cmd("sh -c 'rm -f " .. wobsock .. " && mkfifo " .. wobsock .. " && tail -f " .. wobsock .. " | wob'")
 
