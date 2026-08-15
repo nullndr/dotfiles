@@ -97,6 +97,7 @@ menu menuitem arrow:dir(ltr) {
 
 #tray,
 #mode,
+#submap,
 #clock,
 #mpris,
 #scratchpad,
@@ -116,6 +117,7 @@ menu menuitem arrow:dir(ltr) {
 }
 
 #mode,
+#submap,
 #scratchpad {
 	background-color: @accent;
 	color: @active_text;
@@ -152,8 +154,10 @@ menu menuitem arrow:dir(ltr) {
 #cpu,
 #power-profiles-daemon,
 #privacy,
+#custom-pacman,
 #custom-uxplay,
 #custom-cups,
+#custom-gpu,
 #custom-todo,
 #custom-recorder,
 #network {
@@ -198,7 +202,7 @@ menu menuitem arrow:dir(ltr) {
 	background-color: @danger;
 }
 
-#custom-pacman,
+#custom-pacman > *,
 #battery.charging,
 #idle_inhibitor.activated,
 #custom-recorder.saving {
@@ -222,6 +226,7 @@ menu menuitem arrow:dir(ltr) {
 #disk:hover,
 #bluetooth:hover,
 #custom-recorder:hover,
+#custom-recorder:hover > *,
 #network:hover {
 	border-radius: 6px;
 	color: @active_text;

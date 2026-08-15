@@ -28,8 +28,6 @@ hl.monitor({
 hl.on("hyprland.start", function ()
     hl.exec_cmd("qs")
 
-    hl.exec_cmd("sh -c 'rm -f " .. wobsock .. " && mkfifo " .. wobsock .. " && tail -f " .. wobsock .. " | wob'")
-
     hl.exec_cmd("systemctl --user import-environment DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE SSH_AUTH_SOCK")
 
     hl.exec_cmd(scriptDir .. "/start-polkit-agent.sh")
@@ -348,8 +346,8 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd(scriptDir .. "/screen-brightness-ctl.sh increment"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd(scriptDir .. "/screen-brightness-ctl.sh decrement"),   { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("qs ipc call brightness increment"),   { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("qs ipc call brightness decrement"),   { locked = true, repeating = true })
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(scriptDir .. "/audioctl.sh @DEFAULT_SINK@ increment"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(scriptDir .. "/audioctl.sh @DEFAULT_SINK@ decrement"), { locked = true, repeating = true })

@@ -4,6 +4,8 @@
 		"tooltip-format": "Currently at <span><b>{percent}%</b></span>",
 		"device": "intel_backlight",
 		"format": "{percent}% {icon}",
-		"format-icons": ["", "", "", "", "", "󰃟", "󰃝", "󰃠"]
+		"format-icons": ["", "", "", "", "", "󰃟", "󰃝", "󰃠"],
+		"on-scroll-up": "qs ipc call brightness increment",
+		"on-scroll-down": "qs ipc call brightness decrement"
 	}
 }
